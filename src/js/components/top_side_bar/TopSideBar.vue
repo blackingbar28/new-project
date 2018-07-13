@@ -50,7 +50,6 @@
         padding: 11.5px 0;
         border-top: 2px solid #00b1b3;
     }
-
     .nav > .nav-box {
         display: flex;
         align-items: center;
@@ -68,6 +67,8 @@
     }
     .nav > .nav-box > .nav-right {
         flex-basis: 25%;
+        display: flex;
+        justify-content: flex-end;
     }
     #white-logo {
         width: 235px;

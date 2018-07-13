@@ -1664,6 +1664,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
@@ -1727,7 +1744,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.nav {\n    background: #4d545d;\n    color: #4d545d;\n    padding: 11.5px 0;\n    border-top: 2px solid #00b1b3;\n}\n.nav > .nav-box {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    min-height: 50px;\n    position: relative;\n}\n.nav > .nav-box > .nav-left {\n    -ms-flex-preferred-size: 25%;\n        flex-basis: 25%;\n    text-align: center;\n}\n.nav > .nav-box > .nav-center {\n    -ms-flex-preferred-size: 50%;\n        flex-basis: 50%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.nav > .nav-box > .nav-right {\n    -ms-flex-preferred-size: 25%;\n        flex-basis: 25%;\n}\n#white-logo {\n    width: 235px;\n    max-height: 100%;\n    cursor: pointer;\n    max-width: 100%;\n}\n.nav-right > .nav-item {\n    text-transform: uppercase;\n    font-weight: 700;\n    padding: 10px;\n}\n.nav-bottom > .container > .list-nav-items {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    list-style: none;\n    margin-bottom: 0;\n    padding-left: 0;\n}\n.nav-bottom > .container > .list-nav-items > li {\n    border-left: 1px solid #d7d7d7;\n    border-right: 1px solid #d7d7d7;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    font-weight: 500;\n}\n.nav-bottom > .container > .list-nav-items > li:hover {\n    background: #00b1b3;\n    border-right: 1px solid #00989a;\n}\n.nav-bottom > .container > .list-nav-items > li:hover span {\n    color: #fff;\n}\n.nav-bottom > .container > .list-nav-items > li > .nav-bottom-link {\n    padding: 14px 0;\n    line-height: 1;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    font-weight: 500;\n}\n.nav-bottom > .container > .list-nav-items > li > .nav-bottom-link:hover {\n    text-decoration: none;\n    color: #fff;\n}\n.icon-catalog {\n    background-image: url(" + escape(__webpack_require__("./src/img/catalog.svg")) + ");\n}\n.icon-series {\n    background-image: url(" + escape(__webpack_require__("./src/img/series.svg")) + ");\n    width: 40px;\n    height: 27px;\n    background-repeat: no-repeat;\n}\n.icon-skills {\n    background-image: url(" + escape(__webpack_require__("./src/img/skills.svg")) + ");\n}\n.icon-podcast {\n    background-image: url(" + escape(__webpack_require__("./src/img/podcast.svg")) + ");\n}\n.icon-blog {\n    background-image: url(" + escape(__webpack_require__("./src/img/discussion.svg")) + ");\n}\n.nav-bottom-link .icon {\n    display: block;\n    width: 27px;\n    font-size: 21px;\n    height: 24px;\n    line-height: 24px;\n    text-align: center;\n    vertical-align: top;\n    margin-right: 16px;\n}\n.nav-bottom .nav-bottom-title {\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    color: #99a0aa;\n    font-family: Montserrat,Helvetica,Arial,sans-serif;\n    font-size: inherit;\n}\n", ""]);
+exports.push([module.i, "\n.nav {\n    background: #4d545d;\n    color: #4d545d;\n    padding: 11.5px 0;\n    border-top: 2px solid #00b1b3;\n}\n.nav > .nav-box {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    min-height: 50px;\n    position: relative;\n}\n.nav > .nav-box > .nav-left {\n    -ms-flex-preferred-size: 25%;\n        flex-basis: 25%;\n    text-align: center;\n}\n.nav > .nav-box > .nav-center {\n    -ms-flex-preferred-size: 50%;\n        flex-basis: 50%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.nav > .nav-box > .nav-right {\n    -ms-flex-preferred-size: 25%;\n        flex-basis: 25%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end;\n}\n#white-logo {\n    width: 235px;\n    max-height: 100%;\n    cursor: pointer;\n    max-width: 100%;\n}\n.nav-right > .nav-item {\n    text-transform: uppercase;\n    font-weight: 700;\n    padding: 10px;\n}\n.nav-bottom > .container > .list-nav-items {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    list-style: none;\n    margin-bottom: 0;\n    padding-left: 0;\n}\n.nav-bottom > .container > .list-nav-items > li {\n    border-left: 1px solid #d7d7d7;\n    border-right: 1px solid #d7d7d7;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    font-weight: 500;\n}\n.nav-bottom > .container > .list-nav-items > li:hover {\n    background: #00b1b3;\n    border-right: 1px solid #00989a;\n}\n.nav-bottom > .container > .list-nav-items > li:hover span {\n    color: #fff;\n}\n.nav-bottom > .container > .list-nav-items > li > .nav-bottom-link {\n    padding: 14px 0;\n    line-height: 1;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    font-weight: 500;\n}\n.nav-bottom > .container > .list-nav-items > li > .nav-bottom-link:hover {\n    text-decoration: none;\n    color: #fff;\n}\n.icon-catalog {\n    background-image: url(" + escape(__webpack_require__("./src/img/catalog.svg")) + ");\n}\n.icon-series {\n    background-image: url(" + escape(__webpack_require__("./src/img/series.svg")) + ");\n    width: 40px;\n    height: 27px;\n    background-repeat: no-repeat;\n}\n.icon-skills {\n    background-image: url(" + escape(__webpack_require__("./src/img/skills.svg")) + ");\n}\n.icon-podcast {\n    background-image: url(" + escape(__webpack_require__("./src/img/podcast.svg")) + ");\n}\n.icon-blog {\n    background-image: url(" + escape(__webpack_require__("./src/img/discussion.svg")) + ");\n}\n.nav-bottom-link .icon {\n    display: block;\n    width: 27px;\n    font-size: 21px;\n    height: 24px;\n    line-height: 24px;\n    text-align: center;\n    vertical-align: top;\n    margin-right: 16px;\n}\n.nav-bottom .nav-bottom-title {\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    color: #99a0aa;\n    font-family: Montserrat,Helvetica,Arial,sans-serif;\n    font-size: inherit;\n}\n", ""]);
 
 // exports
 
@@ -1742,7 +1759,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.video-player-wrap {\n    background: #000;\n}\n", ""]);
+exports.push([module.i, "\n.video-player-wrap {\n    background: #000;\n}\n.match-details {\n    padding-top: 10px;\n    padding-bottom: 10px;\n    background: #4d545d;\n    color: #fff;\n}\n.match {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.match > .logo {\n    padding-right: 10px;\n}\n.match > .logo > img {\n    width: 40px;\n    height: 40px;\n}\n.details {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    margin-left: 25px;\n}\n", ""]);
 
 // exports
 
@@ -2783,6 +2800,44 @@ var staticRenderFns = [
               )
             ]
           )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "match-details" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "match" }, [
+            _c("div", { staticClass: "logo" }, [
+              _c("img", {
+                staticClass: "img-responsive",
+                attrs: {
+                  src:
+                    "http://www.bongdatructuyen.us/uploads/team/FC_Basel_1318340839_1329370339.png",
+                  alt: ""
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "logo" }, [
+              _c("img", {
+                staticClass: "img-responsive",
+                attrs: {
+                  src:
+                    "http://www.bongdatructuyen.us/uploads/team/Feyenoord_1343100051.png",
+                  alt: ""
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "details" }, [
+              _c("span", { staticClass: "text-bold" }, [
+                _vm._v("Giao huu quoc te")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "text-bold" }, [_vm._v("Basel - Anh")]),
+              _vm._v(" "),
+              _c("span", { staticClass: "text-bold" }, [_vm._v("01 : 00")])
+            ])
+          ])
         ])
       ])
     ])
