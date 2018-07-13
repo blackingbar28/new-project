@@ -1624,6 +1624,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__top_side_bar_TopSideBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__top_side_bar_TopSideBar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__main_video_MainStream__ = __webpack_require__("./src/js/components/main_video/MainStream.vue");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__main_video_MainStream___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__main_video_MainStream__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__recent_video_streaming_RecentVideo__ = __webpack_require__("./src/js/components/recent_video_streaming/RecentVideo.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__recent_video_streaming_RecentVideo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__recent_video_streaming_RecentVideo__);
 //
 //
 //
@@ -1632,6 +1634,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+
 
 
 
@@ -1640,7 +1644,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   components: {
     top_side_bar: __WEBPACK_IMPORTED_MODULE_0__top_side_bar_TopSideBar___default.a,
-    main_video: __WEBPACK_IMPORTED_MODULE_1__main_video_MainStream___default.a
+    main_video: __WEBPACK_IMPORTED_MODULE_1__main_video_MainStream___default.a,
+    list_streaming: __WEBPACK_IMPORTED_MODULE_2__recent_video_streaming_RecentVideo___default.a
   },
   mounted: function mounted() {
     console.log(123);
@@ -1654,6 +1659,105 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/js/components/recent_video_streaming/RecentVideo.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1760,6 +1864,21 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 // module
 exports.push([module.i, "\n.video-player-wrap {\n    background: #000;\n}\n.match-details {\n    padding-top: 10px;\n    padding-bottom: 10px;\n    background: #4d545d;\n    color: #fff;\n}\n.match {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.match > .logo {\n    padding-right: 10px;\n}\n.match > .logo > img {\n    width: 40px;\n    height: 40px;\n}\n.details {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    margin-left: 25px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-62412017\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./src/js/components/recent_video_streaming/RecentVideo.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.box-streaming {\n}\n.recent-bar {\n    border-bottom: 1px solid #efefef;\n    padding-top: 25px;\n    padding-bottom: 25px;\n    position: relative;\n    z-index: 30;\n    background: #fff;\n}\n.recent-title {\n    font-weight: 600;\n}\n.list-stream {\n    border: 1px solid #eee;\n    background: #fff;\n    list-style: none;\n    padding: 0;\n}\n.list-stream > .stream-item {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    padding: 25px;\n    border-bottom: 1px solid #eee;\n}\n.list-stream > .stream-item > .logo {\n    height: 90px;\n    width: 90px;\n}\n.list-stream > .stream-item > .logo > img {\n    height: 90px;\n    width: 90px;\n}\n.list-stream > .stream-item > .stream-index {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -ms-flex-preferred-size: 200px;\n        flex-basis: 200px;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.list-stream > .stream-item > .stream-details {\n    padding-left: 20px;\n}\n.list-stream > .stream-item > .stream-details > .meta {\n    color: #00b1b3;\n}\n.list-stream > .stream-item > .stream-details > .title {\n    font-size: 24px;\n}\n.list-stream > .stream-item > .stream-details > .description {\n}\n", ""]);
 
 // exports
 
@@ -2854,6 +2973,243 @@ if (false) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-62412017\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/js/components/recent_video_streaming/RecentVideo.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "box-streaming" }, [
+      _c("div", { staticClass: "recent-bar" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("h4", { staticClass: "recent-title" }, [_vm._v("Recent matches")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("ul", { staticClass: "list-stream" }, [
+          _c("li", { staticClass: "stream-item" }, [
+            _c("div", { staticClass: "stream-index" }, [
+              _c("div", { staticClass: "logo" }, [
+                _c("img", {
+                  staticClass: "img-responsive",
+                  attrs: {
+                    src:
+                      "http://www.bongdatructuyen.us/uploads/team/FC_Basel_1318340839_1329370339.png",
+                    alt: ""
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "logo" }, [
+                _c("img", {
+                  staticClass: "img-responsive",
+                  attrs: {
+                    src:
+                      "http://www.bongdatructuyen.us/uploads/team/Feyenoord_1343100051.png",
+                    alt: ""
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "stream-details" }, [
+              _c("div", { staticClass: "meta" }, [_vm._v("01:00 18-12")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "title text-bold" }, [
+                _vm._v("Basic Financial Literacy — Currently Playing")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "description" }, [
+                _vm._v(
+                  "In the United States (and surely many other countries), financial literacy is not taught in schools. "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "stream-item" }, [
+            _c("div", { staticClass: "stream-index" }, [
+              _c("div", { staticClass: "logo" }, [
+                _c("img", {
+                  staticClass: "img-responsive",
+                  attrs: {
+                    src:
+                      "http://www.bongdatructuyen.us/uploads/team/olympique_de_marseille_1320031221_1329371510.png",
+                    alt: ""
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "logo" }, [
+                _c("img", {
+                  staticClass: "img-responsive",
+                  attrs: {
+                    src:
+                      "http://www.bongdatructuyen.us/uploads/team/AS_Saint_Etienne_1357105842.png",
+                    alt: ""
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "stream-details" }, [
+              _c("div", { staticClass: "meta" }, [_vm._v("01:00 18-12")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "title text-bold" }, [
+                _vm._v("Basic Financial Literacy — Currently Playing")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "description" }, [
+                _vm._v(
+                  "In the United States (and surely many other countries), financial literacy is not taught in schools. "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "stream-item" }, [
+            _c("div", { staticClass: "stream-index" }, [
+              _c("div", { staticClass: "logo" }, [
+                _c("img", {
+                  staticClass: "img-responsive",
+                  attrs: {
+                    src:
+                      "http://www.bongdatructuyen.us/uploads/team/ajax_large_1317140087_1329240165.png",
+                    alt: ""
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "logo" }, [
+                _c("img", {
+                  staticClass: "img-responsive",
+                  attrs: {
+                    src:
+                      "http://www.bongdatructuyen.us/uploads/team/RSC_Anderlecht_1329372239.png",
+                    alt: ""
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "stream-details" }, [
+              _c("div", { staticClass: "meta" }, [_vm._v("01:00 18-12")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "title text-bold" }, [
+                _vm._v("Basic Financial Literacy — Currently Playing")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "description" }, [
+                _vm._v(
+                  "In the United States (and surely many other countries), financial literacy is not taught in schools. "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "stream-item" }, [
+            _c("div", { staticClass: "stream-index" }, [
+              _c("div", { staticClass: "logo" }, [
+                _c("img", {
+                  staticClass: "img-responsive",
+                  attrs: {
+                    src:
+                      "http://www.bongdatructuyen.us/uploads/team/FC_Basel_1318340839_1329370339.png",
+                    alt: ""
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "logo" }, [
+                _c("img", {
+                  staticClass: "img-responsive",
+                  attrs: {
+                    src:
+                      "http://www.bongdatructuyen.us/uploads/team/Inter_Milan_1317398559_1329240325.png",
+                    alt: ""
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "stream-details" }, [
+              _c("div", { staticClass: "meta" }, [_vm._v("01:00 18-12")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "title text-bold" }, [
+                _vm._v("Basic Financial Literacy — Currently Playing")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "description" }, [
+                _vm._v(
+                  "In the United States (and surely many other countries), financial literacy is not taught in schools. "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "stream-item" }, [
+            _c("div", { staticClass: "stream-index" }, [
+              _c("div", { staticClass: "logo" }, [
+                _c("img", {
+                  staticClass: "img-responsive",
+                  attrs: {
+                    src: "http://www.bongdatructuyen.us/images/nologo.png",
+                    alt: ""
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "logo" }, [
+                _c("img", {
+                  staticClass: "img-responsive",
+                  attrs: {
+                    src:
+                      "http://www.bongdatructuyen.us/uploads/team/Inter_Milan_1317398559_1329240325.png",
+                    alt: ""
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "stream-details" }, [
+              _c("div", { staticClass: "meta" }, [_vm._v("01:00 18-12")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "title text-bold" }, [
+                _vm._v("Basic Financial Literacy — Currently Playing")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "description" }, [
+                _vm._v(
+                  "In the United States (and surely many other countries), financial literacy is not taught in schools. "
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-62412017", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-84b0ac0a\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/js/components/dashboard/Index.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2861,7 +3217,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("top_side_bar"), _vm._v(" "), _c("main_video")], 1)
+  return _c(
+    "div",
+    [
+      _c("top_side_bar"),
+      _vm._v(" "),
+      _c("main_video"),
+      _vm._v(" "),
+      _c("list_streaming")
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -5550,6 +5916,33 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5282cfd2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainStream.vue", function() {
      var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5282cfd2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainStream.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-62412017\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./src/js/components/recent_video_streaming/RecentVideo.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-62412017\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./src/js/components/recent_video_streaming/RecentVideo.vue");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("bbf978dc", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-62412017\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./RecentVideo.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-62412017\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./RecentVideo.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -16646,6 +17039,58 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-5282cfd2", Component.options)
   } else {
     hotAPI.reload("data-v-5282cfd2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ "./src/js/components/recent_video_streaming/RecentVideo.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-62412017\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./src/js/components/recent_video_streaming/RecentVideo.vue")
+}
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/js/components/recent_video_streaming/RecentVideo.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-62412017\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/js/components/recent_video_streaming/RecentVideo.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src/js/components/recent_video_streaming/RecentVideo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-62412017", Component.options)
+  } else {
+    hotAPI.reload("data-v-62412017", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
