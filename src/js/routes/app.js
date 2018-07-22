@@ -1,11 +1,16 @@
 import VueRouter from 'vue-router';
 import Dashboard from '../components/dashboard/Index';
+import LoginAdmin from '../components/admin/Login';
 
 
 let routes = [
   {
     path: '/',
     component: Dashboard
+  },
+  {
+      path: '/login',
+      component: LoginAdmin
   },
   {
     path: '*',
