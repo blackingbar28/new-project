@@ -1,11 +1,20 @@
 import VueRouter from 'vue-router';
 import Dashboard from '../components/dashboard/Index';
-
+import Trailer from '../components/admin/trailer/Trailer'
+import OverView from '../components/admin/overview/OverView'
 
 let routes = [
   {
     path: '/',
     component: Dashboard
+  },
+  {
+    path: '/trailer',
+    component: Trailer
+  },
+  {
+    path: '/overview',
+    component: OverView
   },
   {
     path: '*',

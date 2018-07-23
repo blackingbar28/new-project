@@ -3,7 +3,7 @@ export default class Request {
     config.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': 'Bearer ' + Vue.cookie.get('token'),
+      // 'Authorization': 'Bearer ' + Vue.cookie.get('token'),
       'language': Vue.locale
     };
     return new Promise((resolve, reject) => {

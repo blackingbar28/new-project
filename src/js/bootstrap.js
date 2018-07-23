@@ -8,4 +8,6 @@ window.axios = axios;
 
 Vue.use(VueRouter);
 
+window.$baseUrl = 'http://test.xxx/';
+
 window.Request = Request;
