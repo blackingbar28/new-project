@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\Facades\JWTFactory;
 use Tymon\JWTAuth\JWTAuth;
 
 class AuthenticationController extends Controller
@@ -33,6 +34,7 @@ class AuthenticationController extends Controller
     {
         $credentials = request(['email', 'password']);
         $token = auth()->attempt($credentials);
+        dd($this->generateToken());
         dd($token);
         dd($this->respondWithToken($token));
     }
@@ -52,4 +54,15 @@ class AuthenticationController extends Controller
             'expires_in' => $this->auth->factory()->getTTL() * 60
         ]);
     }
+
+    protected function generateToken()
+    {
+        $customClaims = ['foo' => 'bar', 'baz' => 'bob'];
+
+        $payload = JWTFactory::make($customClaims);
+
+        $token = $this->auth->encode($payload);
+        return $token;
+    }
+
 }

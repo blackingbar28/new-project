@@ -2,6 +2,8 @@ import VueRouter from 'vue-router';
 import Dashboard from '../components/dashboard/Index';
 import LoginAdmin from '../components/admin/Login';
 
+import Trailer from '../components/admin/trailer/Trailer'
+import OverView from '../components/admin/overview/OverView'
 
 let routes = [
   {
@@ -11,6 +13,14 @@ let routes = [
   {
       path: '/login',
       component: LoginAdmin
+  },
+  {
+    path: '/trailer',
+    component: Trailer
+  },
+  {
+    path: '/overview',
+    component: OverView
   },
   {
     path: '*',
