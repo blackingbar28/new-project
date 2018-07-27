@@ -46,6 +46,6 @@ class CategoryTableSeeder extends Seeder
             ],
         ];
 
-        DB::table('trailer')->insert($categories);
+        DB::table('categories')->insert($categories);
     }
 }

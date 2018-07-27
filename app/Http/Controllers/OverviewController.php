@@ -9,34 +9,34 @@ class OverviewController extends Controller
 {
     public function index()
     {
-        $list = Overview::all(['id', 'name', 'link']);
+        $list = Overview::all(['id', 'category_id', 'name', 'nation', 'year', 'resolution', 'language', 'slug', 'content', 'type', 'idmb', 'trailer_id', 'image', 'episodes']);
 
         return $this->responseSuccess('', $list);
     }
 
     public function store(Request $request)
     {
-        $data = $request->only('link', 'name');
+        $data = $request->only('category_id', 'name', 'nation', 'year', 'resolution', 'language', 'slug', 'content', 'type', 'idmb', 'trailer_id', 'image', 'episodes');
 
-        Overview::create($data);
-
-        return $this->responseSuccess('');
-    }
-
-    public function update(Request $request, $trailerId)
-    {
-        $data = $request->only('link', 'name');
-
-        $trailer = Overview::find($trailerId);
-        $trailer->update($data);
+        dd(Overview::create($data));
 
         return $this->responseSuccess('');
     }
 
-    public function destroy(Request $request, $trailerId)
+    public function update(Request $request, $overviewId)
     {
-        $trailer = Overview::find($trailerId);
-        $trailer->delete();
+        $data = $request->only('category_id', 'name', 'nation', 'year', 'resolution', 'language', 'slug', 'content', 'type', 'idmb', 'trailer_id', 'image', 'episodes');
+
+        $overview = Overview::find($overviewId);
+        $overview->update($data);
+
+        return $this->responseSuccess('');
+    }
+
+    public function destroy($overviewId)
+    {
+        $overview = Overview::find($overviewId);
+        $overview->delete();
 
         return $this->responseSuccess('');
     }

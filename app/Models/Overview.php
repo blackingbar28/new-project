@@ -28,5 +28,7 @@ class Overview extends Model
         'type',
         'trailer_id',
         'image',
+        'episodes',
+        'idmb',
     ];
 }

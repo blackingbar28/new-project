@@ -14,5 +14,10 @@ use Illuminate\Http\Request;
 */
 
 Route::post('login', 'AuthenticationController@login');
-Route::resource('trailers', 'TrailerController');
-Route::resource('trailers', 'TrailerController');
+
+
+Route::group(['middleware' => 'jwt'], function () {
+    Route::resource('trailers', 'TrailerController');
+    Route::resource('overviews', 'OverviewController');
+    Route::resource('categories', 'CategoryController');
+});

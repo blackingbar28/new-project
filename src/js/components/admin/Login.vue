@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div>
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="">
@@ -69,12 +69,18 @@
 
 <script>
     export default {
-        data() {
-          return {
-            email: null,
-            password: null
-          }
-        },
+      data() {
+        return {
+          email: null,
+          password: null
+        }
+      },
+
+      beforeCreate() {
+        if (this.$cookie.get('token')) {
+          this.$router.push('/trailer');
+        }
+      },
 
       methods: {
         doLogin() {
@@ -85,9 +91,14 @@
           };
           Request.post('api/login', params)
             .then((response) => {
-
+              this.saveCookie(response.data);
+              this.$router.push('/trailer');
             });
-        }
+        },
+
+        saveCookie(data) {
+          this.$cookie.set('token', data.access_token);
+        },
       }
     }
 </script>

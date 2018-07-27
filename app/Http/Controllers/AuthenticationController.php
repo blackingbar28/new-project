@@ -33,10 +33,14 @@ class AuthenticationController extends Controller
     public function login(Request $request)
     {
         $credentials = request(['email', 'password']);
-        $token = auth()->attempt($credentials);
-        dd($this->generateToken());
-        dd($token);
-        dd($this->respondWithToken($token));
+        try {
+            $token = auth()->attempt($credentials);
+            $data = $this->respondWithToken($token);
+        } catch (\Exception $ex) {
+            return $this->responseError('Login error');
+        }
+
+        return $this->responseSuccess('Login success', $data);
     }
 
     /**
@@ -48,21 +52,10 @@ class AuthenticationController extends Controller
      */
     protected function respondWithToken($token)
     {
-        return response()->json([
+        return [
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => $this->auth->factory()->getTTL() * 60
-        ]);
+        ];
     }
-
-    protected function generateToken()
-    {
-        $customClaims = ['foo' => 'bar', 'baz' => 'bob'];
-
-        $payload = JWTFactory::make($customClaims);
-
-        $token = $this->auth->encode($payload);
-        return $token;
-    }
-
 }

@@ -21,12 +21,13 @@ class CreateFilmOverviewTalbe extends Migration
             $table->string('year')->nullable();
             $table->string('resolution')->nullable();
             $table->string('language')->nullable();
-            $table->string('idmb')->nullable();
-            $table->smallInteger('watch_number')->default(0);
-            $table->string('trailer_id')->nullable();
             $table->string('slug')->nullable();
+            $table->smallInteger('watch_number')->default(0);
             $table->text('content')->nullable();
             $table->smallInteger('type');
+            $table->string('idmb')->nullable();
+            $table->string('trailer_id')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -38,6 +39,6 @@ class CreateFilmOverviewTalbe extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('film_overview');
+        Schema::dropIfExists('categories');
     }
 }
