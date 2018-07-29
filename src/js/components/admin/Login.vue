@@ -77,6 +77,7 @@
       },
 
       beforeCreate() {
+        console.log(123);
         if (this.$cookie.get('token')) {
           this.$router.push('/trailer');
         }

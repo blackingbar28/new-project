@@ -4,6 +4,7 @@ import LoginAdmin from '../components/admin/Login';
 
 import Trailer from '../components/admin/trailer/Trailer'
 import OverView from '../components/admin/overview/OverView'
+import Film from '../components/admin/films/Film'
 
 let routes = [
   {
@@ -21,6 +22,10 @@ let routes = [
   {
     path: '/overview',
     component: OverView
+  },
+  {
+    path: '/film',
+    component: Film
   },
   {
     path: '*',

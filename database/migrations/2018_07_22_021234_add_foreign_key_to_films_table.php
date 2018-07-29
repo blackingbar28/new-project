@@ -14,7 +14,7 @@ class AddForeignKeyToFilmsTable extends Migration
     public function up()
     {
         Schema::table('films', function (Blueprint $table) {
-            $table->foreign('overview_id', 'films_ibfk_1')->references('id')->on('film_overview')->onUpdate('RESTRICT')->onDelete('CASCADE');
+            $table->foreign('category_id', 'films_ibfk_1')->references('id')->on('categories')->onUpdate('RESTRICT')->onDelete('CASCADE');
         });
     }
 

@@ -10,7 +10,7 @@ class TrailerController extends Controller
     public function index()
     {
         $list = Trailer::all(['id', 'name', 'link']);
-
+dd($list);
         return $this->responseSuccess('', $list);
     }
 

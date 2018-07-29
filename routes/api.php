@@ -20,4 +20,5 @@ Route::group(['middleware' => 'jwt'], function () {
     Route::resource('trailers', 'TrailerController');
     Route::resource('overviews', 'OverviewController');
     Route::resource('categories', 'CategoryController');
+    Route::resource('films', 'FilmController');
 });
