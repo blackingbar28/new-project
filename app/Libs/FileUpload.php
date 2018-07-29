@@ -5,6 +5,7 @@ namespace App\Libs;
 use Illuminate\Http\File;
 use App;
 use Illuminate\Support\Facades\Storage;
+use Image;
 
 class FileUpload
 {
@@ -49,35 +50,21 @@ class FileUpload
      *
      * @return string
      */
-    public function uploadFile(string $fileUrl)
+    public function uploadFile($file)
     {
-        $configPath = config('define.profile_pic_directory');
-        $directory = sprintf($configPath, $this->environment);
+        $path = config('define.image_directory');
+        $path = $this->uploadFileToLocal($file, $path);
 
-        $path = $this->uploadFileToLocal($fileUrl, $directory);
-
-        if ($this->environment !== 'local') {
-            $localPath = $this->publicDisk->path($path);
-            $path = $this->uploadFileToS3($localPath, $directory);
-            $this->deleteLocalDirectory($directory);
-            return $path;
-        }
-        return $this->publicDisk->url($path);
+        return $path;
     }
 
-    /**
-     * Upload to local from external url
-     *
-     * @param string $fileUrl   File url
-     * @param string $directory Directory
-     *
-     * @return string
-     */
-    public function uploadFileToLocal(string $fileUrl, string $directory)
+    public function uploadFileToLocal($file, string $directory)
     {
-        $contents = file_get_contents($fileUrl);
-        $fileName = $directory . '/' . uniqid(str_random(10), true);
-        $this->publicDisk->put($fileName, $contents);
+        $fileName = uniqid(str_random(10)) . '.' . $file->getClientOriginalExtension();
+        $path = sprintf('%s/%s', storage_path($directory), $fileName);
+        $image = Image::make($file->getRealPath());
+        $image->save($path);
+        
         return $fileName;
     }
 

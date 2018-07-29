@@ -26,11 +26,12 @@ class FilmController extends Controller
 
     public function store(Request $request)
     {
-        $image = $request->only('image');
-        dd($image);
         $uploadFile = new FileUpload();
-        dd($uploadFile->uploadFile($image));
+        $path = $uploadFile->uploadFile($request->file('image'));
+        dd($path);
+
         $data = $request->only('category_id', 'name', 'image', 'length', 'resolution', 'slug', 'nation');
+        $data['image'] = $path;
 
         Film::create($data);
 
