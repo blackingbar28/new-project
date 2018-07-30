@@ -10,6 +10,6 @@ window.axios = axios;
 Vue.use(VueRouter);
 Vue.use(VueCookie);
 
-window.$baseUrl = 'http://anime.xxx';
+window.$baseUrl = 'http://test.xxx';
 
 window.Request = Request;

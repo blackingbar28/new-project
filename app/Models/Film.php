@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Link;
+
 class Film extends Model
 {
 
@@ -24,4 +26,9 @@ class Film extends Model
         'language',
         'slug'
     ];
+
+    public function links()
+    {
+        return $this->hasMany(Link::class, 'film_id', 'id');
+    }
 }

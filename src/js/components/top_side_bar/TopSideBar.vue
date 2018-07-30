@@ -81,6 +81,9 @@
         font-weight: 700;
         padding: 10px;
     }
+    .nav-bottom {
+        border-bottom: 1px solid #d7d7d7;
+    }
     .nav-bottom > .container > .list-nav-items {
         display: flex;
         justify-content: center;

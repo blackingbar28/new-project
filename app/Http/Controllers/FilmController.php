@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Libs\FileUpload;
 use App\Models\Film;
+use App\Models\ActorFilm;
 use Illuminate\Http\Request;
 
 class FilmController extends Controller
 {
     public function index()
     {
-        $list = Film::all([
+        $list = Film::with('links')->get([
             'id',
             'category_id',
             'name',
@@ -28,7 +29,6 @@ class FilmController extends Controller
     {
         $uploadFile = new FileUpload();
         $path = $uploadFile->uploadFile($request->file('image'));
-        dd($path);
 
         $data = $request->only('category_id', 'name', 'image', 'length', 'resolution', 'slug', 'nation');
         $data['image'] = $path;
@@ -52,6 +52,31 @@ class FilmController extends Controller
     {
         $film = Film::find($filmId);
         $film->delete();
+
+        return $this->responseSuccess('');
+    }
+
+    public function upload(Request $request, $filmId)
+    {
+        $film = Film::find($filmId);
+        $uploadFile = new FileUpload();
+        $path = $uploadFile->uploadVideo($request->file('video'));
+
+        $film->links()->create([
+           'link' => $path
+        ]);
+
+        return $this->responseSuccess('');
+    }
+
+    public function addActor(Request $request, $filmId)
+    {
+        $actorID = $request->input('actor_id');
+        $attribute = [
+            'film_id' => $filmId,
+            'actor_id' => $actorID
+        ];
+        ActorFilm::create($attribute);
 
         return $this->responseSuccess('');
     }

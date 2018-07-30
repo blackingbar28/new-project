@@ -50,9 +50,12 @@ class FileUpload
      *
      * @return string
      */
-    public function uploadFile($file)
+    public function uploadFile($file, $type = null)
     {
         $path = config('define.image_directory');
+        if ($type) {
+            $path = config('define.avatar_directory');
+        }
         $path = $this->uploadFileToLocal($file, $path);
 
         return $path;
@@ -90,5 +93,15 @@ class FileUpload
     public function deleteLocalDirectory(string $directory)
     {
         $this->publicDisk->deleteDirectory($directory);
+    }
+
+    public function uploadVideo($video)
+    {
+        $fileName = uniqid(str_random(10)) . '.' . $video->getClientOriginalExtension();
+        $path = config('define.video_directory');
+        $disk = Storage::disk('local');
+        $disk->putFileAs($path, $video, $fileName);
+
+        return $fileName;
     }
 }

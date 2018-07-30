@@ -20,5 +20,8 @@ Route::group(['middleware' => 'jwt'], function () {
     Route::resource('trailers', 'TrailerController');
     Route::resource('overviews', 'OverviewController');
     Route::resource('categories', 'CategoryController');
+    Route::post('films/{id}/upload', 'FilmController@upload');
+    Route::post('films/{id}/addActor', 'FilmController@addActor');
     Route::resource('films', 'FilmController');
+    Route::resource('actors', 'ActorController');
 });

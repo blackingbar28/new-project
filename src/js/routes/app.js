@@ -2,7 +2,7 @@ import VueRouter from 'vue-router';
 import Dashboard from '../components/dashboard/Index';
 import LoginAdmin from '../components/admin/Login';
 
-import Trailer from '../components/admin/trailer/Trailer'
+import Actor from '../components/admin/actor/Actor'
 import OverView from '../components/admin/overview/OverView'
 import Film from '../components/admin/films/Film'
 
@@ -16,8 +16,8 @@ let routes = [
       component: LoginAdmin
   },
   {
-    path: '/trailer',
-    component: Trailer
+    path: '/actor',
+    component: Actor
   },
   {
     path: '/overview',

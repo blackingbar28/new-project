@@ -2,7 +2,7 @@
 <div>
     <div class="video-player-wrap">
         <div class="video-player">
-            <div id="laracasts-video" class="container"">
+            <div id="laracasts-video" class="container">
                 <div style="">
 
                     <video-player  class="video-player-box"
@@ -70,9 +70,9 @@
           playbackRates: [0.7, 1.0, 1.5, 2.0],
           sources: [{
             type: "video/mp4",
-            src: "https://video.xx.fbcdn.net/v/t42.9040-2/10000000_285376475550902_6430911913063874560_n.mp4?_nc_cat=0&efg=eyJybHIiOjE1MDAsInJsYSI6NDA5NiwidmVuY29kZV90YWciOiJzdmVfaGQifQ%3D%3D&rl=1500&vabr=962&oh=48a548e018b9c56df913008d86a9b24b&oe=5B5428F2"
+            src: "http://test.xxx/storage/video/KK9XCiqKER5b5ec4d866f4f.mp4"
           }],
-          poster: "https://s3img.vcdn.vn/123phim/2017/04/em-chua-18-14925939804005.jpg",
+          poster: "http://test.xxx/storage/img/film/9DYFmZI8vz5b5e85693b2d4.jpg",
         }
       }
     },
