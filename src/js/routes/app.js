@@ -5,6 +5,7 @@ import LoginAdmin from '../components/admin/Login';
 import Actor from '../components/admin/actor/Actor'
 import OverView from '../components/admin/overview/OverView'
 import Film from '../components/admin/films/Film'
+import WatchVideo from '../components/main_video/MainStream'
 
 let routes = [
   {
@@ -26,6 +27,11 @@ let routes = [
   {
     path: '/film',
     component: Film
+  },
+  {
+    path: '/category/:category/:film',
+    name: 'watch_video',
+    component: WatchVideo
   },
   {
     path: '*',
