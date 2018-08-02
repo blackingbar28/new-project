@@ -5,15 +5,7 @@
     <div class="video-player-wrap">
         <div class="video">
             <div id="laracasts-video" class="container">
-                <video
-                        id="my-player"
-                        class="video-js vjs-big-play-centered"
-                        controls
-                        preload="auto"
-                        poster="https://cdn.pose.com.vn/assets/2018/08/photo-1-15330475255771709955051.jpg"
-                        data-setup='{}'>
-                    <source src="http://test.xxx/storage/video/KK9XCiqKER5b5ec4d866f4f.mp4" type="video/mp4"></source>
-                </video>
+                <div id="player">Loading the player...</div>
             </div>
         </div>
     </div>
@@ -40,10 +32,6 @@
 <script>
   import TopSideBar from '../top_side_bar/TopSideBar';
 
-  import 'video.js/dist/video-js.css'
-
-  import videojs from "video.js" ;
-
   export default {
 
     components: {
@@ -51,10 +39,12 @@
     },
 
     mounted() {
-      this.player = videojs('my-player', {
+      this.player = jwplayer('player');
+      this.player.setup({
+        file: 'http://test.xxx/storage/video/KK9XCiqKER5b5ec4d866f4f.mp4',
+        height: 600,
       });
-
-      // this.player.play();
+      console.log(this.player.getQualityLevels());
     },
 
     data() {
@@ -104,5 +94,7 @@
         flex-direction: column;
         margin-left: 25px;
     }
-
+    .jwlogo {
+        display: none;
+    }
 </style>
