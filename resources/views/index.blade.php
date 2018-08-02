@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini sidebar-fixed">
     <div id="app">
