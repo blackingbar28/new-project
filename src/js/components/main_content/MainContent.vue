@@ -1,5 +1,5 @@
 <template>
-
+<div>
 <div class="container">
     <div class="box-movie">
         <div class="movie-wrapper">
@@ -158,16 +158,22 @@
         </div>
 
         <div class="trending">
-            asdl
+
         </div>
     </div>
 
 </div>
+<recent></recent>
+</div>
 </template>
 
 <script>
-   export default {
+  import RecentVideo from '../recent_video_streaming/RecentVideo'
 
+   export default {
+    components: {
+      recent: RecentVideo
+    }
    }
 
 </script>
@@ -180,11 +186,11 @@
     .movie-wrapper {
         display: flex;
         flex-wrap: wrap;
-        flex-basis: 80%;
+        flex-basis: 100%;
         justify-content: space-between;
     }
     .trending {
-        flex-basis: 20%;
+        /*flex-basis: 0%;*/
     }
 
     @media only screen and (max-width: 600px) {
@@ -197,8 +203,8 @@
         background: #ffffff;
         box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
         width: 100%;
-        max-width: 42%;
-        margin: 2em;
+        max-width: 30%;
+        margin: 2em 0;
         border-radius: 10px;
         display: flex;
         flex-direction: column;

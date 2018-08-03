@@ -11,18 +11,15 @@
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
     <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-
 </head>
 <body class="hold-transition skin-blue sidebar-mini sidebar-fixed">
     <div id="app">
         <router-view></router-view>
     </div>
-<script src="/libs/jwplayer/jwplayer.js"></script>
-    <script>jwplayer.key="gVUm6wGsZM+u3whABPdnXWHL3/MZJlTfoOfaTA==";</script>
-
+<script src="/libs/jw8/jwplayer.js"></script>
+    <script>jwplayer.key="k+JLJ7/FEHRhRoOGqCPz8Voq/z7HGsK5";</script>
     <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 </html>

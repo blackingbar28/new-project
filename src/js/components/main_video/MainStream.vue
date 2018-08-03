@@ -26,25 +26,78 @@
             </div>
         </div>
     </div>
+    <recent></recent>
 </div>
 </template>
 
 <script>
   import TopSideBar from '../top_side_bar/TopSideBar';
+  import Recent from '../recent_video_streaming/RecentVideo'
+  import './jwplayer.scss'
 
   export default {
 
     components: {
-      top_side_bar: TopSideBar
+      top_side_bar: TopSideBar,
+      recent: Recent
     },
 
     mounted() {
+      let jwConfig = {
+        "aspectratio": "16:9",
+        "autostart": false,
+        "controls": true,
+        "displaydescription": true,
+        "displaytitle": false,
+        "flashplayer": "//ssl.p.jwpcdn.com/player/v/8.4.4/jwplayer.flash.swf",
+        "height": 260,
+        "key": "wTUg4lCVHYi8w2DV8do4yS3SnMB3VLeKNqlQF7fKel9XFUcwTlcF9w==",
+        "mute": true,
+        "ph": 3,
+        "pid": "hDZaZjnc",
+        "playbackRateControls": false,
+        "playlist": [{
+          "title":"One Playlist Item With Multiple Qualities",
+          "description":"Two Qualities - One Playlist Item",
+          "image": "http://test.xxx/storage/img/1-201806185.jpg",
+          "sources": [{
+            "file": "http://test.xxx/storage/video/KK9XCiqKER5b5ec4d866f4f.mp4",
+            "label": "HD"
+          },{
+            "file": "http://test.xxx/storage/video/KK9XCiqKER5b5ec4d866f4f.mp4",
+            "label": "SD"
+          }]
+        }],
+        "preload": "metadata",
+        "repeat": false,
+        "skin": {
+          "controlbar": {
+            "background": "rgba(0,0,0,0)",
+            "icons": "rgba(255,255,255,0.8)",
+            "iconsActive": "#FFFFFF",
+            "text": "#F2F2F2"
+          },
+          "menus": {
+            "background": "#333333",
+            "text": "rgba(255,255,255,0.8)",
+            "textActive": "#FFFFFF"
+          },
+          "timeslider": {
+            "progress": "#F2F2F2",
+            "rail": "rgba(255,255,255,0.3)"
+          },
+          "tooltips": {
+            "background": "#FFFFFF",
+            "text": "#000000"
+          }
+        },
+        "stagevideo": false,
+        "stretching": "uniform",
+        "width": "100%"
+      };
+
       this.player = jwplayer('player');
-      this.player.setup({
-        file: 'http://test.xxx/storage/video/KK9XCiqKER5b5ec4d866f4f.mp4',
-        height: 600,
-      });
-      console.log(this.player.getQualityLevels());
+      this.player.setup(jwConfig);
     },
 
     data() {
@@ -69,32 +122,5 @@
 </script>
 
 <style>
-    .video-player-wrap {
-        background: #000;
-    }
-    .match-details {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        background: #4d545d;
-        color: #fff;
-    }
-    .match {
-        display: flex;
-        justify-content: center;
-    }
-    .match > .logo {
-        padding-right: 10px;
-    }
-    .match > .logo > img {
-        width: 40px;
-        height: 40px;
-    }
-    .details {
-        display: flex;
-        flex-direction: column;
-        margin-left: 25px;
-    }
-    .jwlogo {
-        display: none;
-    }
+
 </style>
