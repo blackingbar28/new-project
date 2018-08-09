@@ -25,3 +25,4 @@ _ide_helper.php
 /public/plugins
 /public/bower_components
 storage/debugbar/
+public/mix-manifest.json

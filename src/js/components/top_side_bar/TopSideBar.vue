@@ -26,11 +26,31 @@
     <div class="nav-bottom">
         <div class="container">
             <ul class="list-nav-items">
-                <li><a href="/lessons" class="nav-bottom-link "><span class="icon icon-catalog"></span> <span class="nav-bottom-title">Catalog</span></a></li>
-                <li><a href="/lessons" class="nav-bottom-link "><span class="icon icon-series"></span> <span class="nav-bottom-title">Series</span></a></li>
-                <li><a href="/lessons" class="nav-bottom-link "><span class="icon icon-skills"></span> <span class="nav-bottom-title">Skills</span></a></li>
-                <li><a href="/lessons" class="nav-bottom-link "><span class="icon icon-podcast"></span> <span class="nav-bottom-title">Podcast</span></a></li>
-                <li><a href="/lessons" class="nav-bottom-link "><span class="icon icon-blog"></span> <span class="nav-bottom-title">Discussion</span></a></li>
+                <router-link tag="li" :to="{name: 'category', params: {category: 'uncensored'}}" exact>
+                    <a class="nav-bottom-link ">
+                        <span class="icon icon-catalog"></span> <span class="nav-bottom-title">Uncensored</span>
+                    </a>
+                </router-link>
+                <router-link tag="li" :to="{name: 'category', params: {category: 'censored'}}" exact>
+                    <a class="nav-bottom-link ">
+                        <span class="icon icon-series"></span> <span class="nav-bottom-title">Censored</span>
+                    </a>
+                </router-link>
+                <router-link tag="li" :to="{name: 'category', params: {category: 'uncensored'}}" exact>
+                    <a class="nav-bottom-link ">
+                        <span class="icon icon-skills"></span> <span class="nav-bottom-title">Catalog</span>
+                    </a>
+                </router-link>
+                <router-link tag="li" :to="{name: 'category', params: {category: 'uncensored'}}" exact>
+                    <a class="nav-bottom-link ">
+                        <span class="icon icon-podcast"></span> <span class="nav-bottom-title">Catalog</span>
+                    </a>
+                </router-link>
+                <router-link tag="li" :to="{name: 'category', params: {category: 'uncensored'}}" exact>
+                    <a class="nav-bottom-link ">
+                        <span class="icon icon-blog"></span> <span class="nav-bottom-title">Catalog</span>
+                    </a>
+                </router-link>
             </ul>
         </div>
     </div>

@@ -1,0 +1,130 @@
+.video-player-wrap {
+  background: #000;
+}
+.match-details {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #4d545d;
+  color: #fff;
+}
+.match {
+  display: flex;
+  justify-content: center;
+}
+.match > .logo {
+  padding-right: 10px;
+}
+.match > .logo > img {
+  width: 40px;
+  height: 40px;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+}
+.jwlogo {
+  display: none;
+}
+.jw-icon-rewind {
+  display: none !important;
+}
+.jw-svg-icon-volume-100 path {
+  display: none;
+}
+.jw-svg-icon-volume-100 {
+  background-image: url('../../../img/icons/volume-on.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.jw-icon-volume:hover .jw-svg-icon-volume-100 {
+  background-image: url('../../../img/icons/volume-on-hover.svg');
+}
+.jw-svg-icon-volume-0 path {
+  display: none;
+}
+.jw-svg-icon-volume-0 {
+  background-image: url('../../../img/icons/volume-off.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.jw-icon-volume:hover .jw-svg-icon-volume-0 {
+  background-image: url('../../../img/icons/volume-off-hover.svg');
+}
+.jw-svg-icon-settings path {
+  display: none;
+}
+.jw-svg-icon-settings {
+  background-image: url('../../../img/icons/settings.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.jw-icon-settings:hover .jw-svg-icon-settings {
+  background-image: url('../../../img/icons/settings-hover.svg');
+}
+.jw-svg-icon-quality-100 path {
+  display: none;
+}
+.jw-svg-icon-quality-100 {
+  background-image: url('../../../img/icons/quality.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.jw-settings-quality:hover .jw-svg-icon-quality-100 {
+  background-image: url('../../../img/icons/quality-hover.svg');
+}
+.jw-svg-icon-close path {
+  display: none;
+}
+.jw-svg-icon-close {
+  background-image: url('../../../img/icons/close.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.jw-settings-close:hover .jw-svg-icon-close {
+  background-image: url('../../../img/icons/close-hover.svg');
+}
+.jw-state-paused .jw-svg-icon-play path {
+  display: none;
+}
+.jw-state-paused .jw-svg-icon-play {
+  background-image: url('../../../img/icons/play.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.jw-state-paused .jw-icon-playback:hover .jw-svg-icon-play {
+  background-image: url('../../../img/icons/play-hover.svg');
+}
+.jw-svg-icon-pause path {
+  display: none;
+}
+.jw-svg-icon-pause {
+  background-image: url('../../../img/icons/pause.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.jw-icon-playback:hover .jw-svg-icon-pause {
+  background-image: url('../../../img/icons/pause-hover.svg');
+}
+.jw-svg-icon-fullscreen-on path {
+  display: none;
+}
+.jw-svg-icon-fullscreen-on {
+  background-image: url('../../../img/icons/fullscreen-on.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-on {
+  background-image: url('../../../img/icons/fullscreen-on-hover.svg');
+}
+.jw-svg-icon-fullscreen-off path {
+  display: none;
+}
+.jw-svg-icon-fullscreen-off {
+  background-image: url('../../../img/icons/fullscreen-off.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-off {
+  background-image: url('../../../img/icons/fullscreen-off-hover.svg');
+}

@@ -20,8 +20,7 @@
     <div id="app">
         <router-view></router-view>
     </div>
-<script src="/libs/jw2/jwplayer.js"></script>
-    <script>jwplayer.key="eN7NsKk5NectzmQs30m+OgXazZbEFkjUerHTJXbPGZM=";</script>
+    <script src="/libs/jw2/jwplayer.js"></script>
     <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 </html>

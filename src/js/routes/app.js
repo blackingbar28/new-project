@@ -6,11 +6,19 @@ import Actor from '../components/admin/actor/Actor'
 import OverView from '../components/admin/overview/OverView'
 import Film from '../components/admin/films/Film'
 import WatchVideo from '../components/main_video/MainStream'
+import Error404 from '../components/404/Index'
 
 let routes = [
   {
     path: '/',
-    component: Dashboard
+    component: Dashboard,
+    name: 'home'
+  },
+  {
+    path: '/category/:category',
+    component: Dashboard,
+    name: 'category',
+    prop: true
   },
   {
       path: '/login',
@@ -32,6 +40,11 @@ let routes = [
     path: '/category/:category/:film',
     name: 'watch_video',
     component: WatchVideo
+  },
+  {
+    path: '/error404',
+    name: 'error404',
+    component: Error404
   },
   {
     path: '*',

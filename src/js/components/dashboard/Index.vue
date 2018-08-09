@@ -1,7 +1,7 @@
 <template>
 <div>
     <top_side_bar></top_side_bar>
-    <main_content></main_content>
+    <main_content :category="category"></main_content>
     <!--<list_streaming></list_streaming>-->
 </div>
 
@@ -19,8 +19,17 @@
         main_content: MainContent,
         list_streaming: StreamingList
       },
-      mounted() {
-        console.log(123);
+
+      data() {
+        return {
+          category: this.$route.params.category
+        }
+      },
+
+      created() {
+        if (this.$route.name === 'home') {
+          this.category = 'censored';
+        }
       }
     }
 
