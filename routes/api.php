@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::post('login', 'AuthenticationController@login');
 
 Route::get('list-films', 'HomeController@listFilm');
+Route::get('film', 'HomeController@getFilm');
+Route::get('list-hot-films', 'HomeController@listHotVideoByCategory');
 
 Route::group(['middleware' => 'jwt'], function () {
     Route::resource('trailers', 'TrailerController');

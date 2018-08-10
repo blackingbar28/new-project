@@ -1,0 +1,320 @@
+nav.main {
+  display: flex;
+  padding: 0;
+  height: 80px;
+  width: 100%;
+  border-bottom: 1px solid #dee0df;
+}
+
+nav.main:after {
+  display: table;
+  clear: both
+}
+
+nav.main .nav-block {
+  display: flex;
+  align-items: center
+}
+
+nav.main a.brand {
+  border-right: 1px solid #dee0df;
+  color: #e74430;
+  font-size: 18px;
+  float: left;
+  line-height: 80px;
+  padding: 0 30px
+}
+
+nav.main a.brand svg {
+  height: 32px;
+  width: 48px;
+  margin-right: 10px
+}
+
+nav.main ul.main-nav {
+  border-left: 1px solid #dee0df;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 20px;
+  float: right
+}
+
+nav.main ul.main-nav>li {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  transition: all .2s ease
+}
+
+nav.main ul.main-nav>li>a {
+  color: #525252;
+  display: block;
+  font-size: 15px;
+  padding: 28px 10px;
+  border-bottom: 3px solid transparent;
+  transition: border .2s ease-out,color .2s ease-out
+}
+
+nav.main ul.main-nav>li>a:hover {
+  color: #f4645f;
+  border-color: initial
+}
+
+nav.main ul.main-nav>li>a.dropdown-toggle {
+  white-space: nowrap
+}
+
+nav.main .search {
+  align-items: center;
+  flex: 1;
+  padding: 0 30px
+}
+
+nav.main .search svg {
+  margin-right: 15px
+}
+
+nav.main .search .twitter-typeahead {
+  height: 100%;
+  width: 100%;
+  direction: ltr;
+  display: inline-block;
+  position: relative
+}
+
+nav.main .search .twitter-typeahead input {
+  display: inline-block;
+  border: none;
+  background: inherit;
+  flex: 1;
+  height: 100%!important
+}
+
+nav.main .search .twitter-typeahead input:focus {
+  outline: 0
+}
+
+nav.main .search .twitter-typeahead input::-webkit-input-placeholder {
+  font-family: "Miriam Libre",sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px
+}
+
+nav.main .search .twitter-typeahead input:-ms-input-placeholder {
+  font-family: "Miriam Libre",sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px
+}
+
+nav.main .search .twitter-typeahead input::placeholder {
+  font-family: "Miriam Libre",sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px
+}
+
+nav.main ul.main-nav>li.active a {
+  color: #f4645f
+}
+
+nav.main .community-dropdown .dropdown-menu {
+  top: 100%;
+  right: 0;
+  left: auto
+}
+
+nav.main .switcher {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  border-left: 1px solid #dee0df
+}
+
+nav.main .switcher .dropdown-menu {
+  border-radius: 3px;
+  min-width: 75px;
+  right: 0;
+  left: auto;
+  margin-top: 10px;
+  padding: 0;
+  box-shadow: 0 1px 6px rgba(0,0,0,.1)
+}
+
+nav.main .switcher .dropdown-menu>li {
+  border-bottom: 1px solid #f0f2f1
+}
+
+nav.main .switcher .dropdown-menu>li:last-child {
+  border: none
+}
+
+nav.main .switcher .dropdown-menu>li>a {
+  color: #525252;
+  padding: 10px 20px;
+  text-align: center
+}
+
+.responsive-sidebar-nav {
+  padding: 0 15px;
+  display: none;
+  align-items: center
+}
+
+@media (max-width: 500px) {
+  nav.main .switcher {
+    display:none
+  }
+}
+
+@media (max-width: 1160px) {
+  nav.main .brand,nav.main ul.main-nav {
+    padding:0 15px!important
+  }
+
+  nav.main ul.main-nav>li {
+    margin: 0 5px
+  }
+}
+
+@media (max-width: 1050px) {
+  nav.main ul.main-nav {
+    padding:0 5px!important
+  }
+
+  nav.main .search {
+    padding: 0 15px
+  }
+
+  nav.main .search svg {
+    margin-right: 5px
+  }
+
+  nav.main ul.main-nav>li>a {
+    font-size: 14px
+  }
+}
+
+.panel p,.panel p.intro {
+  color: #aeaeae;
+  font-size: 21px
+}
+
+@media (max-width: 960px) {
+  nav.main ul.main-nav {
+    display:none
+  }
+
+  .responsive-sidebar-nav {
+    display: flex
+  }
+
+  .docs .responsive-sidebar-nav {
+    border-left: 1px solid #dee0df
+  }
+}
+
+@media (max-width: 660px) {
+  nav.main .brand {
+    padding-right:15px!important
+  }
+
+  nav.main .brand span,nav.main .search svg {
+    display: none
+  }
+
+  nav.main .search input {
+    flex: auto;
+    min-width: 80px
+  }
+}
+
+.btn-orange {
+  border: none;
+  border-radius: 3px;
+  background: #f4645f;
+  padding: 10px 15px;
+  font-size: 16px
+}
+
+.btn-orange:active,.btn-orange:hover {
+  background: #e74430;
+  color: #fff
+}
+
+.slide-menu {
+  background: #f4645f;
+  padding: 0 20px;
+  left: -70%
+}
+
+@media (min-width: 959px) {
+  .slide-menu {
+    display:none
+  }
+}
+
+.slide-menu h2 {
+  color: #fff;
+  padding: .75rem 0;
+  margin: 20px 0 0;
+  font-size: 1rem
+}
+
+.slide-menu .brand {
+  padding: 22px 0;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,.25)
+}
+
+.slide-menu .brand img {
+  margin-left: -20px
+}
+
+.slide-menu .slide-main-nav {
+  list-style: none;
+  padding: 25px 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(255,255,255,.1)
+}
+
+.slide-menu a {
+  line-height: 1.5;
+  color: rgba(255,255,255,.9);
+  font-size: 20px;
+}
+
+.btn-orange,.slide-menu a:hover {
+  color: #fff
+}
+
+.overlay {
+  position: fixed;
+  background: rgba(255,255,255,.75);
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  transition: all .1s ease;
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
+  cursor: pointer;
+}
+.callout.rule,.callout.rule .text,.panel,.panel.laracon,.sidebar h2,nav.main .switcher {
+  position: relative
+}
+.scotch-is-showing .overlay {
+  display: block
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
+}

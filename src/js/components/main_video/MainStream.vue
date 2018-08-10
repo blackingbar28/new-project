@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <recent></recent>
+    <recent :category="category"></recent>
 </div>
 </template>
 
@@ -40,6 +40,19 @@
     components: {
       top_side_bar: TopSideBar,
       recent: Recent
+    },
+
+    data() {
+      return {
+        player: null,
+        category: this.$route.params.category,
+        film_name: this.$route.params.film,
+        film: null
+      }
+    },
+
+    created() {
+        this.getFilm();
     },
 
     mounted() {
@@ -59,12 +72,12 @@
         "playlist": [{
           "title":"One Playlist Item With Multiple Qualities",
           "description":"Two Qualities - One Playlist Item",
-          "image": "http://anime.xxx/storage/img/aa.jpg",
+          "image": "http://test.xxx/storage/img/film/hOH9BIVo8E5b5e85b4369c2.jpg",
           "sources": [{
-            "file": "http://anime.xxx/storage/video/10000000_239894086846123_6627705132723208192_n.mp4",
+            "file": "http://test.xxx/storage/video/KK9XCiqKER5b5ec4d866f4f.mp4",
             "label": "HD"
           },{
-            "file": "http://anime.xxx/storage/video/10000000_239894086846123_6627705132723208192_n.mp4",
+            "file": "http://test.xxx/storage/video/KK9XCiqKER5b5ec4d866f4f.mp4",
             "label": "SD"
           }]
         }],
@@ -100,22 +113,18 @@
       this.player.setup(jwConfig);
     },
 
-    data() {
-      return {
-        player: null
-      }
-    },
-
-    computed: {
-      // player() {
-      //   return videojs('my-player', {
-      //   });
-      // }
-    },
-
     methods: {
       playerReadied(player) {
 
+      },
+
+      getFilm() {
+        let params = {
+          name: this.film_name
+        };
+        Request.get('/api/film', params).then((response) => {
+          this.film = response.data;
+        });
       }
     }
   }

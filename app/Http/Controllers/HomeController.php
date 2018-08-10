@@ -12,12 +12,6 @@ class HomeController extends Controller
     {
         $page = $request->input('page');
         $category = $request->input('category');
-        $isExistsCategory = Category::where('slug', $category)->first();
-
-        if (!$isExistsCategory) {
-            return $this->responseError('', [], 404);
-        }
-
         $columns = [
             'films.name',
             'films.image',
@@ -28,11 +22,54 @@ class HomeController extends Controller
             'categories.slug as category',
         ];
 
+        $isExistsCategory = Category::where('slug', $category)->first();
+        if (!$isExistsCategory) {
+            return $this->responseError('', [], 404);
+        }
         $films = Film::join('categories', 'categories.id', 'films.category_id')
             ->where('films.category_id', $isExistsCategory->id)
             ->orderBy('films.created_at', 'desc')
             ->paginate(6, $columns, 'page', $page);
 
         return $this->responseSuccess('', $films);
+    }
+
+    public function listHotVideoByCategory(Request $request)
+    {
+        $category = $request->input('category');
+        $columns = [
+            'films.name',
+            'films.image',
+            'films.length',
+            'films.slug',
+            'categories.slug as category',
+        ];
+
+        if ($category == 'all') {
+            $films = Film::join('categories', 'categories.id', 'films.category_id')
+                ->orderBy('films.created_at', 'desc')
+                ->limit(10)
+                ->take(10)
+                ->get($columns);
+
+            return $this->responseSuccess('', $films);
+        }
+
+        $isExistsCategory = Category::where('slug', $category)->first();
+        $films = Film::join('categories', 'categories.id', 'films.category_id')
+            ->where('films.category_id', $isExistsCategory->id)
+            ->orderBy('films.created_at', 'desc')
+            ->limit(10)
+            ->take(10)
+            ->get($columns);
+
+        return $this->responseSuccess('', $films);
+    }
+
+    public function getFilm(Request $request)
+    {
+        $filmName = $request->only('name');
+        $film = Film::with('links')->where('slug', $filmName)->first(['name', 'image']);
+        dd($film->toArray());
     }
 }
