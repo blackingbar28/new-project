@@ -9,14 +9,14 @@
 }
 .match {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .match > .logo {
   padding-right: 10px;
 }
 .match > .logo > img {
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
 }
 .details {
   display: flex;

@@ -12,16 +12,19 @@
     <div class="match-details">
         <div class="container">
             <div class="match">
-                <div class="logo">
-                    <img src="http://www.bongdatructuyen.us/uploads/team/FC_Basel_1318340839_1329370339.png" alt="" class="img-responsive">
-                </div>
-                <div class="logo">
-                    <img src="http://www.bongdatructuyen.us/uploads/team/Feyenoord_1343100051.png" alt="" class="img-responsive">
+                <div class="logo" v-if="film">
+                    <img :src="film.image" alt="" class="img-responsive">
                 </div>
                 <div class="details">
-                    <span class="text-bold">Giao huu quoc te</span>
-                    <span class="text-bold">Basel - Anh</span>
-                    <span class="text-bold">01 : 00</span>
+                    <span class="text-bold" v-if="film">
+                        {{film.name}}
+                    </span>
+                    <span class="text-bold">
+                        Actor
+                    </span>
+                    <span class="text-bold">
+                        Views: 1.000.000
+                    </span>
                 </div>
             </div>
         </div>
@@ -56,61 +59,7 @@
     },
 
     mounted() {
-      let jwConfig = {
-        "aspectratio": "16:9",
-        "autostart": false,
-        "controls": true,
-        "displaydescription": true,
-        "displaytitle": false,
-        "flashplayer": "/jw2/jwplayer.flash.swf",
-        "height": 260,
-        "key": "eN7NsKk5NectzmQs30m+OgXazZbEFkjUerHTJXbPGZM=",
-        "mute": false,
-        "ph": 3,
-        "pid": "hDZaZjnc",
-        "playbackRateControls": false,
-        "playlist": [{
-          "title":"One Playlist Item With Multiple Qualities",
-          "description":"Two Qualities - One Playlist Item",
-          "image": "http://test.xxx/storage/img/film/hOH9BIVo8E5b5e85b4369c2.jpg",
-          "sources": [{
-            "file": "http://test.xxx/storage/video/KK9XCiqKER5b5ec4d866f4f.mp4",
-            "label": "HD"
-          },{
-            "file": "http://test.xxx/storage/video/KK9XCiqKER5b5ec4d866f4f.mp4",
-            "label": "SD"
-          }]
-        }],
-        "preload": "metadata",
-        "repeat": false,
-        "skin": {
-          "controlbar": {
-            "background": "rgba(0,0,0,0)",
-            "icons": "rgba(255,255,255,0.8)",
-            "iconsActive": "#FFFFFF",
-            "text": "#F2F2F2"
-          },
-          "menus": {
-            "background": "#333333",
-            "text": "rgba(255,255,255,0.8)",
-            "textActive": "#FFFFFF"
-          },
-          "timeslider": {
-            "progress": "#F2F2F2",
-            "rail": "rgba(255,255,255,0.3)"
-          },
-          "tooltips": {
-            "background": "#FFFFFF",
-            "text": "#000000"
-          }
-        },
-        "stagevideo": false,
-        "stretching": "uniform",
-        "width": "100%"
-      };
 
-      this.player = jwplayer('player');
-      this.player.setup(jwConfig);
     },
 
     methods: {
@@ -124,7 +73,70 @@
         };
         Request.get('/api/film', params).then((response) => {
           this.film = response.data;
+          console.log(this.film);
+          this.setupPlayer();
         });
+      },
+
+      setupPlayer() {
+        let jwConfig = {
+          "aspectratio": "16:9",
+          "autostart": false,
+          "controls": true,
+          "displaydescription": false,
+          "displaytitle": false,
+          "flashplayer": "/jw2/jwplayer.flash.swf",
+          "height": 260,
+          "key": "eN7NsKk5NectzmQs30m+OgXazZbEFkjUerHTJXbPGZM=",
+          "mute": false,
+          "ph": 3,
+          "pid": "hDZaZjnc",
+          "playbackRateControls": false,
+          "playlist": [{
+            "title":"One Playlist Item With Multiple Qualities",
+            "description":"Two Qualities - One Playlist Item",
+            "image": this.film.image,
+            "sources":
+              this.film.links
+              // {
+              // "file": "http://anime.xxx/storage/video/10000000_239894086846123_6627705132723208192_n.mp4",
+              // "label": "HD"
+              // },{
+              // "file": "http://animes.xxx/storage/video/10000000_239894086846123_6627705132723208192_n.mp4",
+              // "label": "SD"
+              // }
+
+          }],
+          "preload": "metadata",
+          "repeat": false,
+          "skin": {
+            "controlbar": {
+              "background": "rgba(0,0,0,0)",
+              "icons": "rgba(255,255,255,0.8)",
+              "iconsActive": "#FFFFFF",
+              "text": "#F2F2F2"
+            },
+            "menus": {
+              "background": "#333333",
+              "text": "rgba(255,255,255,0.8)",
+              "textActive": "#FFFFFF"
+            },
+            "timeslider": {
+              "progress": "#F2F2F2",
+              "rail": "rgba(255,255,255,0.3)"
+            },
+            "tooltips": {
+              "background": "#FFFFFF",
+              "text": "#000000"
+            }
+          },
+          "stagevideo": false,
+          "stretching": "uniform",
+          "width": "100%"
+        };
+
+        this.player = jwplayer('player');
+        this.player.setup(jwConfig);
       }
     }
   }

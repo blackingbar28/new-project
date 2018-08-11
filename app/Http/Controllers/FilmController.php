@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Libs\FileUpload;
 use App\Models\Film;
 use App\Models\ActorFilm;
+use App\Models\Link;
 use Illuminate\Http\Request;
 
 class FilmController extends Controller
 {
     public function index()
     {
-        $list = Film::with('links')->get([
+        $list = Film::with('links')->orderBy('created_at', 'desc')->get([
             'id',
             'category_id',
             'name',
@@ -77,6 +78,28 @@ class FilmController extends Controller
             'actor_id' => $actorID
         ];
         ActorFilm::create($attribute);
+
+        return $this->responseSuccess('');
+    }
+
+    public function addLink(Request $request, $filmId)
+    {
+        $data = $request->only('link', 'label');
+        $attribute = array_merge([
+            'film_id' => $filmId
+        ], $data);
+
+        Link::create($attribute);
+
+        return $this->responseSuccess('');
+    }
+
+    public function removeLink(Request $request, $filmId, $linkId)
+    {
+        $link = Link::find($linkId);
+        if ($link) {
+            $link->delete();
+        };
 
         return $this->responseSuccess('');
     }

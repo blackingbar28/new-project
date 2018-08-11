@@ -2,7 +2,7 @@
 <div class="box-streaming">
     <div class="recent-bar">
         <div class="container">
-            <h4 class="recent-title">Recent matches</h4>
+            <h4 class="recent-title" v-cloak>Recent matches</h4>
         </div>
     </div>
     <div class="container">

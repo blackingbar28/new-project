@@ -1,6 +1,12 @@
 <template>
 <div>
+    <div class="recent-bar">
+        <div class="container">
+            <h4 class="recent-title">{{title}}</h4>
+        </div>
+    </div>
 <div class="container">
+
     <div class="box-movie">
         <div class="movie-wrapper">
 
@@ -46,11 +52,8 @@
     <div class="clearfix"></div>
     <div class="clearfix"></div>
     <div class="clearfix"></div>
-    <div class="row">
-        <div class="col-sm-5"></div>
-        <div class="col-sm-7">
-            <pagination :records="total" :per-page="perPage" @paginate="setPage"></pagination>
-        </div>
+    <div class="d-flex justify-content-center">
+        <pagination :records="total" :per-page="perPage" @paginate="setPage"></pagination>
     </div>
     <div class="clearfix"></div>
 
@@ -80,6 +83,7 @@
       '$route.params.category': function(val) {
         this.category_clone = val;
         this.getFilms();
+        this.getTitle();
       },
     },
 
@@ -91,12 +95,14 @@
         total: 0,
         perPage: 6,
         page: 1,
-        category_clone: this.category
+        category_clone: this.category,
+        title: ''
       }
     },
 
     created() {
       this.getFilms();
+      this.getTitle();
     },
 
     methods: {
@@ -112,6 +118,20 @@
           this.to = response.data.to;
           this.perPage = response.data.per_page;
         });
+      },
+
+      getTitle() {
+        switch (this.category_clone) {
+          case 'censored':
+            this.title = 'Censored';
+            break;
+          case 'uncensored':
+            this.title = 'UnCensored';
+            break;
+          default:
+            this.title = 'Recent films';
+            break;
+        }
       },
 
       setPage(page) {

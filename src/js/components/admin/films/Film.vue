@@ -28,13 +28,14 @@
                             <img :src="getUrl(film.image)" class="avatar-img">
                         </td>
                         <td>
-                            {{getLink(film)}}
+                            <link_film v-for="(link, index) in film.links" :link="link"
+                                @remove="removeLink(link)" :key="index"></link_film>
                         </td>
                         <td>
                            <span class="mr5 crpt" @click="edit(film)">
                                 <i class="fa fa-pencil-square-o"></i>
                             </span>
-                                <span class="crpt" @click="remove(film)">
+                            <span class="crpt" @click="remove(film)">
                                 <i class="fa fa-trash"></i>
                             </span>
                             <span @click="selectVideo(film)" class="crpt">
@@ -43,10 +44,36 @@
                             <span @click="addActor(film)" class="crpt">
                                 +Actors
                             </span>
+                            <span class="crpt" @click="addLink(film)">
+                                +Links
+                            </span>
                         </td>
                     </tr>
                     </tbody>
                 </table>
+            </div>
+
+            <div class="container-fluid bg-light py-3" v-if="isShowLink">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="card card-body">
+                            <h3 class="text-center mb-4">Add Link</h3>
+                            <fieldset>
+                                <form method="POST" enctype="multipart/form-data" v-on:submit.prevent="doAddLink">
+                                    <div class="form-group has-error">
+                                        <label class="control-label">Link</label>
+                                        <input class="form-control input-lg" type="text" v-model="link.link">
+                                    </div>
+                                    <div class="form-group has-error">
+                                        <label class="control-label">Label</label>
+                                        <input class="form-control input-lg" type="text" v-model="link.label">
+                                    </div>
+                                    <button class="btn btn-lg btn-primary btn-block">Add Link</button>
+                                </form>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="container-fluid bg-light py-3" v-if="isShowActor">
@@ -191,10 +218,12 @@
 
 <script>
   import Header from '../layouts/Header';
+  import LinkFilm from './component/Link.vue'
 
   export default {
     components: {
-      main_header: Header
+      main_header: Header,
+      link_film: LinkFilm
     },
 
     data() {
@@ -204,6 +233,7 @@
         isShowEdit: false,
         isShowUpload: false,
         isShowActor: false,
+        isShowLink: false,
         categories: null,
         film: {
           category_id: null,
@@ -223,6 +253,11 @@
         actor_film: {
           film_id: "",
           actor_id: ""
+        },
+        link: {
+          film_id: "",
+          link: "",
+          label: ""
         }
       }
     },
@@ -260,7 +295,7 @@
 
         Request.post('/api/films', formData).then((response) => {
           this.isShowAdd = false;
-          this.initData();
+          this.getFilms();
         });
       },
 
@@ -273,13 +308,13 @@
         Request.put('/api/films/' + this.activeEdit.id, this.activeEdit).then((response) => {
           this.isShowEdit = false;
           this.activeEdit = null;
-          this.initData();
+          this.getFilms();
         });
       },
 
       remove(trailer) {
         Request.delete('/api/trailers/' + trailer.id).then((response) => {
-          this.initData();
+          this.getFilms();
         });
       },
 
@@ -310,7 +345,7 @@
         formData.append('video', this.upload.video);
         Request.post('/api/films/' + this.upload.film_id + '/upload', formData).then((response) => {
           this.isShowUpload = false;
-          this.initData();
+          this.getFilms();
         });
       },
 
@@ -336,6 +371,28 @@
         };
         Request.post('/api/films/' + this.actor_film.film_id + '/addActor', params).then((response) => {
           this.isShowActor = false;
+        });
+      },
+
+      addLink(film) {
+        this.link.film_id = film.id;
+        this.isShowLink = true;
+      },
+
+      doAddLink() {
+        let params = {
+          link: this.link.link,
+          label: this.link.label
+        };
+        Request.post('/api/films/' + this.link.film_id + '/addLink', params).then((response) => {
+          this.getFilms();
+          this.isShowLink = false;
+        });
+      },
+
+      removeLink(link) {
+        Request.delete('/api/films/' + link.film_id + '/removeLink/' + link.id).then((response) => {
+          this.getFilms();
         });
       }
     }

@@ -5,6 +5,7 @@ import LoginAdmin from '../components/admin/Login';
 import Actor from '../components/admin/actor/Actor'
 import OverView from '../components/admin/overview/OverView'
 import Film from '../components/admin/films/Film'
+import Link from '../components/admin/link/Link'
 import WatchVideo from '../components/main_video/MainStream'
 import Error404 from '../components/404/Index'
 
@@ -35,6 +36,10 @@ let routes = [
   {
     path: '/film',
     component: Film
+  },
+  {
+    path: '/link',
+    component: Link
   },
   {
     path: '/category/:category/:film',

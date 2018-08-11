@@ -30,7 +30,7 @@
         if (this.$route.name === 'home') {
           this.category = 'censored';
         }
-      }
+      },
     }
 
 </script>

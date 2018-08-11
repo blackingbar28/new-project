@@ -69,7 +69,20 @@ class HomeController extends Controller
     public function getFilm(Request $request)
     {
         $filmName = $request->only('name');
-        $film = Film::with('links')->where('slug', $filmName)->first(['name', 'image']);
-        dd($film->toArray());
+        $with['links'] = function ($query) {
+            return $query->select([
+               'links.link as file',
+               'links.label',
+               'links.film_id',
+            ]);
+        };
+        $film = Film::with($with)->where('slug', $filmName)->first(['id', 'name', 'image']);
+        if ($film->links->count()) {
+            foreach ($film->links as $link) {
+                unset($link->film_id);
+            }
+        }
+
+        return $this->responseSuccess('', $film);
     }
 }

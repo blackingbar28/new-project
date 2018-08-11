@@ -17,5 +17,6 @@ class Link extends Model
     protected $fillable = [
         'film_id',
         'link',
+        'label'
     ];
 }
