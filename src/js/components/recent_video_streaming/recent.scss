@@ -17,6 +17,7 @@
   display: flex;
   padding: 25px;
   border-bottom: 1px solid #eee;
+  cursor: pointer;
 }
 .stream-item > .stream-index > .thumb-img {
   height: 90px;
@@ -29,11 +30,11 @@
 .list-stream > .stream-item > .stream-index {
   display: flex;
   align-items: center;
-  flex-basis: 30%;
+  flex-basis: 20%;
   justify-content: center;
 }
 .list-stream > .stream-item > .stream-details {
-  flex-basis: 70%;
+  flex-basis: 80%;
   padding-left: 20px;
 }
 .list-stream > .stream-item > .stream-details > .meta {

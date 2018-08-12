@@ -122,10 +122,10 @@
 
       getTitle() {
         switch (this.category_clone) {
-          case 'censored':
+          case this.$category.censored:
             this.title = 'Censored';
             break;
-          case 'uncensored':
+          case this.$category.uncensored:
             this.title = 'UnCensored';
             break;
           default:
@@ -144,7 +144,7 @@
       },
 
       getBackground(image) {
-        let url = 'url("' + $baseUrl + '/storage/img/film/' + image + '")';
+        let url = 'url("' + image + '")';
 
         let styleObject = {
           background: url,

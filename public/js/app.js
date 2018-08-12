@@ -2815,7 +2815,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   created: function created() {
     if (this.$route.name === 'home') {
-      this.category = 'censored';
+      this.category = this.$category.censored;
     }
   }
 });
@@ -2958,10 +2958,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     getTitle: function getTitle() {
       switch (this.category_clone) {
-        case 'censored':
+        case this.$category.censored:
           this.title = 'Censored';
           break;
-        case 'uncensored':
+        case this.$category.uncensored:
           this.title = 'UnCensored';
           break;
         default:
@@ -2977,7 +2977,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return '/category/' + film.category + '/' + film.slug;
     },
     getBackground: function getBackground(image) {
-      var url = 'url("' + $baseUrl + '/storage/img/film/' + image + '")';
+      var url = 'url("' + image + '")';
 
       var styleObject = {
         background: url,
@@ -3058,10 +3058,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       film: null
     };
   },
+
+
+  watch: {
+    '$route.params.film': function $routeParamsFilm(val) {
+      this.film_name = val;
+      this.getFilm();
+    }
+  },
+
   created: function created() {
     this.getFilm();
   },
-  mounted: function mounted() {},
 
 
   methods: {
@@ -3074,7 +3082,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       };
       Request.get('/api/film', params).then(function (response) {
         _this.film = response.data;
-        console.log(_this.film);
         _this.setupPlayer();
       });
     },
@@ -3211,6 +3218,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       };
       Request.get('/api/list-hot-films', params).then(function (response) {
         _this.films = response.data;
+      });
+    },
+    redirect: function redirect(film) {
+      this.$router.push({
+        name: 'watch_video',
+        params: { category: film.category, film: film.slug }
       });
     }
   }
@@ -7325,7 +7338,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".recent-bar {\n  padding-top: 25px;\n  position: relative; }\n\n.recent-title {\n  font-weight: 600; }\n\n.list-stream {\n  border: 1px solid #eee;\n  background: #fff;\n  list-style: none;\n  padding: 0; }\n\n.list-stream > .stream-item {\n  display: flex;\n  padding: 25px;\n  border-bottom: 1px solid #eee; }\n\n.stream-item > .stream-index > .thumb-img {\n  height: 90px;\n  width: 100%; }\n\n.list-stream > .stream-item > .thumb-img > img {\n  height: 90px;\n  width: 90px; }\n\n.list-stream > .stream-item > .stream-index {\n  display: flex;\n  align-items: center;\n  flex-basis: 30%;\n  justify-content: center; }\n\n.list-stream > .stream-item > .stream-details {\n  flex-basis: 70%;\n  padding-left: 20px; }\n\n.list-stream > .stream-item > .stream-details > .meta {\n  color: #00b1b3; }\n\n.list-stream > .stream-item > .stream-details > .title {\n  font-size: 24px; }\n", ""]);
+exports.push([module.i, ".recent-bar {\n  padding-top: 25px;\n  position: relative; }\n\n.recent-title {\n  font-weight: 600; }\n\n.list-stream {\n  border: 1px solid #eee;\n  background: #fff;\n  list-style: none;\n  padding: 0; }\n\n.list-stream > .stream-item {\n  display: flex;\n  padding: 25px;\n  border-bottom: 1px solid #eee;\n  cursor: pointer; }\n\n.stream-item > .stream-index > .thumb-img {\n  height: 90px;\n  width: 100%; }\n\n.list-stream > .stream-item > .thumb-img > img {\n  height: 90px;\n  width: 90px; }\n\n.list-stream > .stream-item > .stream-index {\n  display: flex;\n  align-items: center;\n  flex-basis: 20%;\n  justify-content: center; }\n\n.list-stream > .stream-item > .stream-details {\n  flex-basis: 80%;\n  padding-left: 20px; }\n\n.list-stream > .stream-item > .stream-details > .meta {\n  color: #00b1b3; }\n\n.list-stream > .stream-item > .stream-details > .title {\n  font-size: 24px; }\n", ""]);
 
 // exports
 
@@ -7400,7 +7413,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -24930,21 +24943,34 @@ var render = function() {
         "ul",
         { staticClass: "list-stream" },
         _vm._l(_vm.films, function(film) {
-          return _c("li", { staticClass: "stream-item" }, [
-            _vm._m(0, true),
-            _vm._v(" "),
-            _c("div", { staticClass: "stream-details" }, [
-              _c("div", { staticClass: "title text-bold" }, [
-                _vm._v(_vm._s(film.name))
-              ]),
+          return _c(
+            "li",
+            {
+              staticClass: "stream-item",
+              on: {
+                click: function($event) {
+                  _vm.redirect(film)
+                }
+              }
+            },
+            [
+              _vm._m(0, true),
               _vm._v(" "),
-              _c("div", { staticClass: "meta" }, [_vm._v(_vm._s(film.length))]),
-              _vm._v(" "),
-              _c("div", { staticClass: "description" }, [
-                _vm._v("1.0000 views")
+              _c("div", { staticClass: "stream-details" }, [
+                _c("div", { staticClass: "title text-bold" }, [
+                  _vm._v(_vm._s(film.name))
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "meta" }, [
+                  _vm._v(_vm._s(film.length))
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "description" }, [
+                  _vm._v("1.0000 views")
+                ])
               ])
-            ])
-          ])
+            ]
+          )
         })
       )
     ])
@@ -40109,7 +40135,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_cookie___default.a);
 
 // window.$baseUrl = 'https://dea4914e.ngrok.io';
-window.$baseUrl = 'http://anime.xxx';
+window.$baseUrl = 'http://test.xxx';
 
 window.Request = __WEBPACK_IMPORTED_MODULE_4__utilities_Request__["a" /* default */];
 
@@ -40896,6 +40922,11 @@ if(false) {
 
 Vue.prototype.$baseUrl = {
   url: 'http://anime.xxx'
+};
+
+Vue.prototype.$category = {
+  censored: "censored",
+  uncensored: "uncensored"
 };
 
 /***/ }),

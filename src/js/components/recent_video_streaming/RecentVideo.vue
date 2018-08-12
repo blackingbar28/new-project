@@ -7,7 +7,7 @@
     </div>
     <div class="container">
         <ul class="list-stream">
-            <li class="stream-item" v-for="film in films">
+            <li class="stream-item" v-for="film in films" @click="redirect(film)">
                 <div class="stream-index">
                     <div class="thumb-img">
                         <img src="http://www.bongdatructuyen.us/uploads/team/FC_Basel_1318340839_1329370339.png" alt="" class="img-responsive">
@@ -57,6 +57,13 @@
           Request.get('/api/list-hot-films', params).then((response) => {
             this.films = response.data;
           });
+        },
+
+        redirect(film) {
+          this.$router.push({
+            name: 'watch_video',
+            params: {category: film.category, film: film.slug}
+          })
         }
       }
     }

@@ -12,6 +12,6 @@ Vue.use(VueRouter);
 Vue.use(VueCookie);
 
 // window.$baseUrl = 'https://dea4914e.ngrok.io';
-window.$baseUrl = 'http://anime.xxx';
+window.$baseUrl = 'http://test.xxx';
 
 window.Request = Request;

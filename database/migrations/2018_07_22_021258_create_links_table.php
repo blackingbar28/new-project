@@ -17,6 +17,7 @@ class CreateLinksTable extends Migration
             $table->increments('id');
             $table->smallInteger('film_id');
             $table->string('link');
+            $table->string('label');
             $table->timestamps();
         });
     }

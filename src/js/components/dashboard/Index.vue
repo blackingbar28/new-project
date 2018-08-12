@@ -28,7 +28,7 @@
 
       created() {
         if (this.$route.name === 'home') {
-          this.category = 'censored';
+          this.category = this.$category.censored;
         }
       },
     }

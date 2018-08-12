@@ -54,12 +54,17 @@
       }
     },
 
-    created() {
+
+    watch: {
+      '$route.params.film': function(val) {
+        this.film_name = val;
         this.getFilm();
+      },
     },
 
-    mounted() {
 
+    created() {
+        this.getFilm();
     },
 
     methods: {
@@ -73,7 +78,6 @@
         };
         Request.get('/api/film', params).then((response) => {
           this.film = response.data;
-          console.log(this.film);
           this.setupPlayer();
         });
       },
