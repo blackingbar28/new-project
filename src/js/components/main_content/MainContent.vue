@@ -59,7 +59,7 @@
 
 </div>
 <div class="clearfix"></div>
-<recent :category="category_clone"></recent>
+<recent :category="category_clone" v-if="showRecent"></recent>
 
 </div>
 </template>
@@ -81,6 +81,9 @@
 
     watch: {
       '$route.params.category': function(val) {
+        if (val !== 'all') {
+          this.showRecent = false;
+        }
         this.category_clone = val;
         this.getFilms();
         this.getTitle();
@@ -96,13 +99,17 @@
         perPage: 6,
         page: 1,
         category_clone: this.category,
-        title: ''
+        title: '',
+        showRecent: false
       }
     },
 
     created() {
       this.getFilms();
       this.getTitle();
+      if (this.$route.name === 'home') {
+        this.showRecent = true;
+      }
     },
 
     methods: {

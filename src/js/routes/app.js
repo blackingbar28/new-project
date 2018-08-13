@@ -7,6 +7,8 @@ import OverView from '../components/admin/overview/OverView'
 import Film from '../components/admin/films/Film'
 import Link from '../components/admin/link/Link'
 import WatchVideo from '../components/main_video/MainStream'
+import ActorFilm from '../components/ActorFilm/ActorFilm';
+
 import Error404 from '../components/404/Index'
 
 let routes = [
@@ -45,6 +47,11 @@ let routes = [
     path: '/category/:category/:film',
     name: 'watch_video',
     component: WatchVideo
+  },
+  {
+    path: '/actor/:name',
+    name: 'actor_film',
+    component: ActorFilm
   },
   {
     path: '/error404',

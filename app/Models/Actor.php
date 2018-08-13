@@ -21,5 +21,6 @@ class Actor extends Model
         'height',
         'history',
         'born_date',
+        'slug',
     ];
 }

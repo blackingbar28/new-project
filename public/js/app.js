@@ -1657,6 +1657,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/js/components/ActorFilm/ActorFilm.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+  props: ['name']
+
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/js/components/admin/Login.vue":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2815,7 +2835,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   created: function created() {
     if (this.$route.name === 'home') {
-      this.category = this.$category.censored;
+      this.category = 'all';
     }
   }
 });
@@ -2916,6 +2936,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   watch: {
     '$route.params.category': function $routeParamsCategory(val) {
+      if (val !== 'all') {
+        this.showRecent = false;
+      }
       this.category_clone = val;
       this.getFilms();
       this.getTitle();
@@ -2931,12 +2954,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       perPage: 6,
       page: 1,
       category_clone: this.category,
-      title: ''
+      title: '',
+      showRecent: false
     };
   },
   created: function created() {
     this.getFilms();
     this.getTitle();
+    if (this.$route.name === 'home') {
+      this.showRecent = true;
+    }
   },
 
 
@@ -3038,6 +3065,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -3082,6 +3111,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       };
       Request.get('/api/film', params).then(function (response) {
         _this.film = response.data;
+        console.log(_this.film);
         _this.setupPlayer();
       });
     },
@@ -3111,7 +3141,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           // "file": "http://animes.xxx/storage/video/10000000_239894086846123_6627705132723208192_n.mp4",
           // "label": "SD"
           // }
-
         }],
         "preload": "metadata",
         "repeat": false,
@@ -3214,7 +3243,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       var params = {
-        category: this.$route.name === 'home' ? 'all' : this.clone_category
+        category: this.$route.name === 'home' ? 'all' : this.clone_category,
+        current_film: this.$route.name === 'home' ? '' : this.$route.params.film
       };
       Request.get('/api/list-hot-films', params).then(function (response) {
         _this.films = response.data;
@@ -7323,7 +7353,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".video-player-wrap {\n  background: #000; }\n\n.match-details {\n  padding-top: 10px;\n  padding-bottom: 10px;\n  background: #4d545d;\n  color: #fff; }\n\n.match {\n  display: flex;\n  justify-content: flex-start; }\n\n.match > .logo {\n  padding-right: 10px; }\n\n.match > .logo > img {\n  width: 70px;\n  height: 70px; }\n\n.details {\n  display: flex;\n  flex-direction: column;\n  margin-left: 25px; }\n\n.jwlogo {\n  display: none; }\n\n.jw-icon-rewind {\n  display: none !important; }\n\n.jw-svg-icon-volume-100 path {\n  display: none; }\n\n.jw-svg-icon-volume-100 {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/volume-on.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-icon-volume:hover .jw-svg-icon-volume-100 {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/volume-on-hover.svg")) + "); }\n\n.jw-svg-icon-volume-0 path {\n  display: none; }\n\n.jw-svg-icon-volume-0 {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/volume-off.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-icon-volume:hover .jw-svg-icon-volume-0 {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/volume-off-hover.svg")) + "); }\n\n.jw-svg-icon-settings path {\n  display: none; }\n\n.jw-svg-icon-settings {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/settings.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-icon-settings:hover .jw-svg-icon-settings {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/settings-hover.svg")) + "); }\n\n.jw-svg-icon-quality-100 path {\n  display: none; }\n\n.jw-svg-icon-quality-100 {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/quality.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-settings-quality:hover .jw-svg-icon-quality-100 {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/quality-hover.svg")) + "); }\n\n.jw-svg-icon-close path {\n  display: none; }\n\n.jw-svg-icon-close {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/close.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-settings-close:hover .jw-svg-icon-close {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/close-hover.svg")) + "); }\n\n.jw-state-paused .jw-svg-icon-play path {\n  display: none; }\n\n.jw-state-paused .jw-svg-icon-play {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/play.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-state-paused .jw-icon-playback:hover .jw-svg-icon-play {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/play-hover.svg")) + "); }\n\n.jw-svg-icon-pause path {\n  display: none; }\n\n.jw-svg-icon-pause {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/pause.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-icon-playback:hover .jw-svg-icon-pause {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/pause-hover.svg")) + "); }\n\n.jw-svg-icon-fullscreen-on path {\n  display: none; }\n\n.jw-svg-icon-fullscreen-on {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/fullscreen-on.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-on {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/fullscreen-on-hover.svg")) + "); }\n\n.jw-svg-icon-fullscreen-off path {\n  display: none; }\n\n.jw-svg-icon-fullscreen-off {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/fullscreen-off.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-off {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/fullscreen-off-hover.svg")) + "); }\n", ""]);
+exports.push([module.i, ".video-player-wrap {\n  background: #000; }\n\n.match-details {\n  padding-top: 10px;\n  padding-bottom: 10px;\n  background: #4d545d;\n  color: #fff; }\n\n.match {\n  display: flex;\n  justify-content: flex-start; }\n\n.match > .logo {\n  padding-right: 10px; }\n\n.match > .logo > img {\n  width: 70px;\n  height: 70px; }\n\n.details {\n  display: flex;\n  flex-direction: column;\n  margin-left: 25px; }\n\n.name-actor {\n  cursor: pointer;\n  border: 1px solid black;\n  padding: 2px 10px;\n  color: red;\n  border-radius: 5px;\n  margin-right: 5px; }\n\n.jwlogo {\n  display: none; }\n\n.jw-icon-rewind {\n  display: none !important; }\n\n.jw-svg-icon-volume-100 path {\n  display: none; }\n\n.jw-svg-icon-volume-100 {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/volume-on.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-icon-volume:hover .jw-svg-icon-volume-100 {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/volume-on-hover.svg")) + "); }\n\n.jw-svg-icon-volume-0 path {\n  display: none; }\n\n.jw-svg-icon-volume-0 {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/volume-off.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-icon-volume:hover .jw-svg-icon-volume-0 {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/volume-off-hover.svg")) + "); }\n\n.jw-svg-icon-settings path {\n  display: none; }\n\n.jw-svg-icon-settings {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/settings.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-icon-settings:hover .jw-svg-icon-settings {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/settings-hover.svg")) + "); }\n\n.jw-svg-icon-quality-100 path {\n  display: none; }\n\n.jw-svg-icon-quality-100 {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/quality.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-settings-quality:hover .jw-svg-icon-quality-100 {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/quality-hover.svg")) + "); }\n\n.jw-svg-icon-close path {\n  display: none; }\n\n.jw-svg-icon-close {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/close.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-settings-close:hover .jw-svg-icon-close {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/close-hover.svg")) + "); }\n\n.jw-state-paused .jw-svg-icon-play path {\n  display: none; }\n\n.jw-state-paused .jw-svg-icon-play {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/play.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-state-paused .jw-icon-playback:hover .jw-svg-icon-play {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/play-hover.svg")) + "); }\n\n.jw-svg-icon-pause path {\n  display: none; }\n\n.jw-svg-icon-pause {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/pause.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-icon-playback:hover .jw-svg-icon-pause {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/pause-hover.svg")) + "); }\n\n.jw-svg-icon-fullscreen-on path {\n  display: none; }\n\n.jw-svg-icon-fullscreen-on {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/fullscreen-on.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-on {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/fullscreen-on-hover.svg")) + "); }\n\n.jw-svg-icon-fullscreen-off path {\n  display: none; }\n\n.jw-svg-icon-fullscreen-off {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/fullscreen-off.svg")) + ");\n  background-size: contain;\n  background-repeat: no-repeat; }\n\n.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-off {\n  background-image: url(" + escape(__webpack_require__("./src/img/icons/fullscreen-off-hover.svg")) + "); }\n", ""]);
 
 // exports
 
@@ -7413,7 +7443,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -24403,7 +24433,9 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "clearfix" }),
       _vm._v(" "),
-      _c("recent", { attrs: { category: _vm.category_clone } })
+      _vm.showRecent
+        ? _c("recent", { attrs: { category: _vm.category_clone } })
+        : _vm._e()
     ],
     1
   )
@@ -24791,38 +24823,46 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "match-details" }, [
         _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "match" }, [
-            _vm.film
-              ? _c("div", { staticClass: "logo" }, [
+          _vm.film
+            ? _c("div", { staticClass: "match" }, [
+                _c("div", { staticClass: "logo" }, [
                   _c("img", {
                     staticClass: "img-responsive",
                     attrs: { src: _vm.film.image, alt: "" }
                   })
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("div", { staticClass: "details" }, [
-              _vm.film
-                ? _c("span", { staticClass: "text-bold" }, [
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "details" }, [
+                  _c("span", { staticClass: "text-bold" }, [
                     _vm._v(
                       "\n                        " +
                         _vm._s(_vm.film.name) +
                         "\n                    "
                     )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    { staticClass: "text-bold" },
+                    _vm._l(_vm.film.actors, function(actor) {
+                      return _c("span", { staticClass: "name-actor" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(actor.name) +
+                            "\n                        "
+                        )
+                      ])
+                    })
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text-bold" }, [
+                    _vm._v(
+                      "\n                        Views: 1.000.000\n                    "
+                    )
                   ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("span", { staticClass: "text-bold" }, [
-                _vm._v("\n                        Actor\n                    ")
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "text-bold" }, [
-                _vm._v(
-                  "\n                        Views: 1.000.000\n                    "
-                )
+                ])
               ])
-            ])
-          ])
+            : _vm._e()
         ])
       ]),
       _vm._v(" "),
@@ -25569,6 +25609,27 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-b0c8925a", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-ddd6d032\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/js/components/ActorFilm/ActorFilm.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("\n    Acotr\n")])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-ddd6d032", module.exports)
   }
 }
 
@@ -40193,6 +40254,54 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./src/js/components/ActorFilm/ActorFilm.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/js/components/ActorFilm/ActorFilm.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-ddd6d032\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/js/components/ActorFilm/ActorFilm.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src/js/components/ActorFilm/ActorFilm.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-ddd6d032", Component.options)
+  } else {
+    hotAPI.reload("data-v-ddd6d032", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ "./src/js/components/admin/Login.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -40950,8 +41059,12 @@ Vue.prototype.$category = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_admin_link_Link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_admin_link_Link__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_main_video_MainStream__ = __webpack_require__("./src/js/components/main_video/MainStream.vue");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_main_video_MainStream___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_main_video_MainStream__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_404_Index__ = __webpack_require__("./src/js/components/404/Index.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_404_Index___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_404_Index__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_ActorFilm_ActorFilm__ = __webpack_require__("./src/js/components/ActorFilm/ActorFilm.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_ActorFilm_ActorFilm___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_ActorFilm_ActorFilm__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_404_Index__ = __webpack_require__("./src/js/components/404/Index.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_404_Index___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_404_Index__);
+
+
 
 
 
@@ -40992,9 +41105,13 @@ var routes = [{
   name: 'watch_video',
   component: __WEBPACK_IMPORTED_MODULE_7__components_main_video_MainStream___default.a
 }, {
+  path: '/actor/:name',
+  name: 'actor_film',
+  component: __WEBPACK_IMPORTED_MODULE_8__components_ActorFilm_ActorFilm___default.a
+}, {
   path: '/error404',
   name: 'error404',
-  component: __WEBPACK_IMPORTED_MODULE_8__components_404_Index___default.a
+  component: __WEBPACK_IMPORTED_MODULE_9__components_404_Index___default.a
 }, {
   path: '*',
   redirect: '/'

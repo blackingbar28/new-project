@@ -31,4 +31,13 @@ class Film extends Model
     {
         return $this->hasMany(Link::class, 'film_id', 'id');
     }
+
+    public function actors()
+    {
+        return ActorFilm::join('actors', 'actors.id', 'actor_film.actor_id')
+            ->where('film_id', $this->id)
+            ->get([
+                'actors.name',
+        ]);
+    }
 }

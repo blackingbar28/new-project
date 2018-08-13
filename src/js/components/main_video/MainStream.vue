@@ -11,16 +11,18 @@
     </div>
     <div class="match-details">
         <div class="container">
-            <div class="match">
-                <div class="logo" v-if="film">
+            <div class="match" v-if="film">
+                <div class="logo">
                     <img :src="film.image" alt="" class="img-responsive">
                 </div>
                 <div class="details">
-                    <span class="text-bold" v-if="film">
+                    <span class="text-bold">
                         {{film.name}}
                     </span>
                     <span class="text-bold">
-                        Actor
+                        <span v-for="actor in film.actors" class="name-actor">
+                            {{actor.name}}
+                        </span>
                     </span>
                     <span class="text-bold">
                         Views: 1.000.000
@@ -78,6 +80,7 @@
         };
         Request.get('/api/film', params).then((response) => {
           this.film = response.data;
+          console.log(this.film);
           this.setupPlayer();
         });
       },
@@ -109,7 +112,6 @@
               // "file": "http://animes.xxx/storage/video/10000000_239894086846123_6627705132723208192_n.mp4",
               // "label": "SD"
               // }
-
           }],
           "preload": "metadata",
           "repeat": false,

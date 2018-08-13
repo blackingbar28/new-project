@@ -52,7 +52,8 @@
       methods: {
         getFilms() {
           let params = {
-            category: this.$route.name === 'home' ? 'all' : this.clone_category
+            category: this.$route.name === 'home' ? 'all' : this.clone_category,
+            current_film: this.$route.name === 'home' ? '' : this.$route.params.film,
           };
           Request.get('/api/list-hot-films', params).then((response) => {
             this.films = response.data;
