@@ -24,7 +24,8 @@ class Film extends Model
         'length',
         'resolution',
         'language',
-        'slug'
+        'slug',
+        'view_number',
     ];
 
     public function links()
@@ -38,6 +39,7 @@ class Film extends Model
             ->where('film_id', $this->id)
             ->get([
                 'actors.name',
+                'actors.slug',
         ]);
     }
 }

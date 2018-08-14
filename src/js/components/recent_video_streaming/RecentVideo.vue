@@ -10,13 +10,13 @@
             <li class="stream-item" v-for="film in films" @click="redirect(film)">
                 <div class="stream-index">
                     <div class="thumb-img">
-                        <img src="http://www.bongdatructuyen.us/uploads/team/FC_Basel_1318340839_1329370339.png" alt="" class="img-responsive">
+                        <img :src="film.image" alt="" class="img img-responsive">
                     </div>
                 </div>
                 <div class="stream-details">
                     <div class="title text-bold">{{film.name}}</div>
                     <div class="meta">{{film.length}}</div>
-                    <div class="description">1.0000 views</div>
+                    <div class="description">{{film.view_number}} views</div>
                 </div>
             </li>
         </ul>

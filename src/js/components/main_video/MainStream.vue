@@ -20,7 +20,7 @@
                         {{film.name}}
                     </span>
                     <span class="text-bold">
-                        <span v-for="actor in film.actors" class="name-actor">
+                        <span v-for="actor in film.actors" class="name-actor" @click="redirectActor(actor)">
                             {{actor.name}}
                         </span>
                     </span>
@@ -80,7 +80,6 @@
         };
         Request.get('/api/film', params).then((response) => {
           this.film = response.data;
-          console.log(this.film);
           this.setupPlayer();
         });
       },
@@ -143,6 +142,13 @@
 
         this.player = jwplayer('player');
         this.player.setup(jwConfig);
+      },
+
+      redirectActor(actor) {
+        this.$router.push({
+          name: 'actor_film',
+          params: {name: actor.slug}
+        });
       }
     }
   }

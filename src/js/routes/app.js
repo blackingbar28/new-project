@@ -7,7 +7,9 @@ import OverView from '../components/admin/overview/OverView'
 import Film from '../components/admin/films/Film'
 import Link from '../components/admin/link/Link'
 import WatchVideo from '../components/main_video/MainStream'
+import ActorsFrontEnd from '../components/Actor/Actor';
 import ActorFilm from '../components/ActorFilm/ActorFilm';
+import Search from '../components/Search/Search'
 
 import Error404 from '../components/404/Index'
 
@@ -28,19 +30,19 @@ let routes = [
       component: LoginAdmin
   },
   {
-    path: '/actor',
+    path: '/admin/actor',
     component: Actor
   },
   {
-    path: '/overview',
+    path: '/admin/overview',
     component: OverView
   },
   {
-    path: '/film',
+    path: '/admin/film',
     component: Film
   },
   {
-    path: '/link',
+    path: '/admin/link',
     component: Link
   },
   {
@@ -49,9 +51,21 @@ let routes = [
     component: WatchVideo
   },
   {
+    path: '/actors',
+    name: 'actors',
+    component: ActorsFrontEnd
+  },
+  {
     path: '/actor/:name',
     name: 'actor_film',
-    component: ActorFilm
+    component: ActorFilm,
+    props: true
+  },
+  {
+    path: '/search/:film',
+    name: 'search',
+    component: Search,
+    props: true
   },
   {
     path: '/error404',

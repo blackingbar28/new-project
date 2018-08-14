@@ -17,7 +17,10 @@ Route::post('login', 'AuthenticationController@login');
 
 Route::get('list-films', 'HomeController@listFilm');
 Route::get('film', 'HomeController@getFilm');
+Route::get('actor', 'HomeController@getActors');
 Route::get('list-hot-films', 'HomeController@listHotVideoByCategory');
+Route::get('film-by-actor', 'HomeController@getFilmByActor');
+Route::get('search', 'HomeController@search');
 
 Route::group(['middleware' => 'jwt'], function () {
     Route::resource('trailers', 'TrailerController');

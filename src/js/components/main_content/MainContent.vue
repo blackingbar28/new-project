@@ -33,6 +33,10 @@
                             <span>{{film.length}}</span>
                         </div><!--date,time-->
                         <div class="info-section">
+                            <label>Views</label>
+                            <span>{{film.view_number}}</span>
+                        </div><!--date,time-->
+                        <div class="info-section">
                             <label>Nation</label>
                             <span>{{film.nation}}</span>
                         </div><!--row-->

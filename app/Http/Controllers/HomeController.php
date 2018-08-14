@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Actor;
 use App\Models\Category;
 use App\Models\Film;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class HomeController extends Controller
             'films.resolution',
             'films.slug',
             'films.nation',
+            'films.view_number',
             'categories.slug as category',
         ];
 
@@ -47,6 +49,7 @@ class HomeController extends Controller
             'films.image',
             'films.length',
             'films.slug',
+            'films.view_number',
             'categories.slug as category',
         ];
         $isExistsCategory = Category::where('slug', $category)->first();
@@ -58,7 +61,7 @@ class HomeController extends Controller
                 ->where('films.category_id', $isExistsCategory->id);
         }
 
-        $films = $films->orderBy('films.created_at', 'desc')
+        $films = $films->orderBy('films.view_number', 'desc')
         ->limit(10)
         ->take(10)
         ->get($columns);
@@ -78,7 +81,12 @@ class HomeController extends Controller
             ]);
         };
 
-        $film = Film::with($with)->where('slug', $filmName)->first(['id', 'name', 'image']);
+        $film = Film::with($with)->where('slug', $filmName)->first(['id', 'name', 'image', 'view_number']);
+        if (!$film) {
+            return $this->responseError('', [], 404);
+        }
+        $film->view_number = $film->view_number + 1;
+        $film->save();
         if ($film->links->count()) {
             foreach ($film->links as $link) {
                 unset($link->film_id);
@@ -89,9 +97,64 @@ class HomeController extends Controller
         return $this->responseSuccess('', $film);
     }
 
+    public function getActors()
+    {
+        $columns = [
+            'name',
+            'avatar',
+            'nation',
+            'born_date',
+            'slug',
+        ];
+
+        $actors = Actor::orderBy('created_at', 'desc')->get($columns);
+        return $this->responseSuccess('', $actors);
+    }
+
     public function getFilmByActor(Request $request)
     {
         $actorInput = $request->input('actor');
-        dd($actorInput);
+        $actor = Actor::where('slug', $actorInput)->first(['id', 'name', 'avatar', 'nation', 'slug']);
+        if (!$actor) {
+            return $this->responseError('', [], 404);
+        }
+
+        $columns = [
+            'films.name',
+            'films.image',
+            'films.length',
+            'films.slug',
+            'categories.slug as category',
+        ];
+
+        $films = Film::join('actor_film', 'actor_film.film_id', 'films.id')
+            ->join('categories', 'categories.id', '=', 'films.category_id')
+            ->where('actor_film.actor_id', $actor->id)
+            ->orderBy('films.created_at', 'desc')
+            ->get($columns);
+
+        return $this->responseSuccess('', $films);
+    }
+
+    public function search(Request $request)
+    {
+        $searchText = $request->input('search');
+
+        $columns = [
+            'films.name',
+            'films.image',
+            'films.length',
+            'films.resolution',
+            'films.slug',
+            'films.nation',
+            'films.view_number',
+            'categories.slug as category',
+        ];
+
+        $films = Film::join('categories', 'categories.id', 'films.category_id')
+            ->where(\DB::raw('LOWER(films.name)'), 'LIKE', '%' . strtolower($searchText) . '%')
+            ->get($columns);
+
+        return $this->responseSuccess('', $films);
     }
 }
