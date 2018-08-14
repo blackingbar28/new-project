@@ -48,7 +48,6 @@
         getActors() {
           Request.get('/api/actor').then((response) => {
             this.actors = response.data;
-            console.log(this.actors);
           });
         },
 

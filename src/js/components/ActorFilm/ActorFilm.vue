@@ -79,8 +79,7 @@
       }
     },
     created() {
-      console.log(this.name);
-        this.getFilms();
+      this.getFilms();
     },
 
     methods: {

@@ -86,45 +86,42 @@
 
 <script>
 import './top_side_bar.scss'
-  export default {
 
-    data() {
-      return {
-        showOverLay: false,
-        panel: null,
-        searchModel: ""
-      }
+export default {
+
+  data() {
+    return {
+      showOverLay: false,
+      panel: null,
+      searchModel: ""
+    }
+  },
+  mounted() {
+    this.panel = $('#slide-menu').scotchPanel({
+      containerSelector: 'body',
+      direction: 'left',
+      duration: 300,
+      transition: 'ease',
+      clickSelector: '.toggle-slide',
+      distanceX: '70%',
+      enableEscapeKey: true
+    });
+
+    this.panel.show();
+  },
+
+  methods: {
+    hide() {
+      this.showOverLay = false;
+      this.panel.close();
     },
-    mounted() {
-      this.panel = $('#slide-menu').scotchPanel({
-        containerSelector: 'body',
-        direction: 'left',
-        duration: 300,
-        transition: 'ease',
-        clickSelector: '.toggle-slide',
-        distanceX: '70%',
-        enableEscapeKey: true
+
+    search() {
+      this.$router.push({
+        name: 'search',
+        params: {film: this.searchModel}
       });
-
-      this.panel.show();
-    },
-
-    methods: {
-      hide() {
-        this.showOverLay = false;
-        this.panel.close();
-      },
-
-      search() {
-        this.$router.push({
-          name: 'search',
-          params: {film: this.searchModel}
-        });
-      }
     }
-    }
+  }
+}
 </script>
-
-<style>
-
-</style>

@@ -87,10 +87,9 @@
     },
 
     watch: {
-      '$route.params.film': function(val) {
+      '$route.params.film': function (val) {
         this.clone_search = val;
         this.getFilms();
-        console.log(this.clone_search);
       },
     },
 

@@ -25,7 +25,7 @@
                         </span>
                     </span>
                     <span class="text-bold">
-                        Views: 1.000.000
+                        {{film.view_number}} views
                     </span>
                 </div>
             </div>
@@ -58,7 +58,7 @@
 
 
     watch: {
-      '$route.params.film': function(val) {
+      '$route.params.film': function (val) {
         this.film_name = val;
         this.getFilm();
       },
@@ -66,7 +66,7 @@
 
 
     created() {
-        this.getFilm();
+      this.getFilm();
     },
 
     methods: {
@@ -99,18 +99,10 @@
           "pid": "hDZaZjnc",
           "playbackRateControls": false,
           "playlist": [{
-            "title":"One Playlist Item With Multiple Qualities",
-            "description":"Two Qualities - One Playlist Item",
+            "title": "",
+            "description": "",
             "image": this.film.image,
-            "sources":
-              this.film.links
-              // {
-              // "file": "http://anime.xxx/storage/video/10000000_239894086846123_6627705132723208192_n.mp4",
-              // "label": "HD"
-              // },{
-              // "file": "http://animes.xxx/storage/video/10000000_239894086846123_6627705132723208192_n.mp4",
-              // "label": "SD"
-              // }
+            "sources": this.film.links
           }],
           "preload": "metadata",
           "repeat": false,
@@ -153,7 +145,3 @@
     }
   }
 </script>
-
-<style>
-
-</style>
