@@ -13,7 +13,7 @@
         <div class="container">
             <div class="match" v-if="film">
                 <div class="logo">
-                    <img :src="film.image" alt="" class="img-responsive">
+                    <img :src="getLink(film.image)" :alt="film.name" class="img-responsive">
                 </div>
                 <div class="details">
                     <span class="text-bold">
@@ -52,7 +52,8 @@
         player: null,
         category: this.$route.params.category,
         film_name: this.$route.params.film,
-        film: null
+        film: null,
+        convert_name: null
       }
     },
 
@@ -66,7 +67,24 @@
 
 
     created() {
+      this.convertName();
       this.getFilm();
+    },
+
+    head: {
+      // To use "this" in the component, it is necessary to return the object through a function
+      title: function () {
+        return {
+          inner: this.convert_name,
+          separator: ' ', // Leave empty separator
+          complement: ' ' // Leave empty complement
+        }
+      },
+      meta:  function () {
+        return [
+          { name: 'description', content: 'Uhr ' + this.convert_name }
+        ]
+      }
     },
 
     methods: {
@@ -82,6 +100,10 @@
           this.film = response.data;
           this.setupPlayer();
         });
+      },
+
+      convertName() {
+        this.convert_name = _.upperCase(_.replace(this.film_name, '-', ' '));
       },
 
       setupPlayer() {
@@ -101,7 +123,7 @@
           "playlist": [{
             "title": "",
             "description": "",
-            "image": this.film.image,
+            "image": this.getLink(this.film.image),
             "sources": this.film.links
           }],
           "preload": "metadata",
@@ -141,6 +163,10 @@
           name: 'actor_film',
           params: {name: actor.slug}
         });
+      },
+
+      getLink(link) {
+        return $baseUrl + '/storage/img/film/' + link;
       }
     }
   }

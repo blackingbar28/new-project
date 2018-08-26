@@ -6,6 +6,7 @@
 }
 .recent-title {
   font-weight: 600;
+  font-size: 25px;
 }
 .list-stream {
   border: 1px solid #eee;
@@ -24,6 +25,7 @@
   align-items: center;
   flex-basis: 20%;
   justify-content: center;
+  height: 180px;
 }
 .stream-item .stream-index .thumb-img {
   height: 100%;

@@ -1,8 +1,7 @@
 <template>
 <div>
     <top_side_bar></top_side_bar>
-    <main_content :category="category"></main_content>
-    <!--<list_streaming></list_streaming>-->
+    <main_content category="all"></main_content>
 </div>
 
 </template>
@@ -20,17 +19,22 @@
         list_streaming: StreamingList
       },
 
-      data() {
-        return {
-          category: this.$route.params.category
-        }
-      },
-
-      created() {
-        if (this.$route.name === 'home') {
-          this.category = 'all';
-        }
-      },
+      head: {
+        // To use "this" in the component, it is necessary to return the object through a function
+        title: function () {
+          return {
+            inner: 'ONE-XX.DE - Deutsche Porno, Gratis Porno, deutschsex',
+            separator: ' ', // Leave empty separator
+            complement: ' ' // Leave empty complement
+          }
+        },
+        meta: [
+          { name: 'description', content: 'ONE-XX.DE – Schaue deutsche porno online auf deinem Desktop oder Mobilgeräten!' }
+        ],
+        link: [
+          { rel: 'canonical', href: 'http://one-xx.de'}
+        ]
+      }
     }
 
 </script>

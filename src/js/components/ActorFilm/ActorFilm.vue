@@ -5,7 +5,7 @@
     <div>
         <div class="recent-bar">
             <div class="container">
-                <h4 class="recent-title">Actor > {{name}}</h4>
+                <h1 class="recent-title">{{actor_name}}</h1>
             </div>
         </div>
         <div class="container">
@@ -62,7 +62,7 @@
 </template>
 
 <script>
-
+  import _ from 'lodash';
   import TopSideBar from '../top_side_bar/TopSideBar';
 
   export default {
@@ -75,10 +75,12 @@
 
     data() {
       return {
-        films: null
+        films: null,
+        actor_name: null
       }
     },
     created() {
+      this.convertName();
       this.getFilms();
     },
 
@@ -106,6 +108,25 @@
         };
 
         return styleObject;
+      },
+
+      convertName() {
+        this.actor_name = _.upperCase(_.replace(this.name, '-', ' '));
+      }
+    },
+
+    head: {
+      title: function () {
+        return {
+          inner: this.actor_name + ' PORNO VIDEOS',
+          separator: ' ', // Leave empty separator
+          complement: ' ' // Leave empty complement
+        }
+      },
+      meta:  function () {
+        return [
+          { name: 'description', content: 'Uhr all' + this.actor_name + ' porn videos - ONE-XX.de' }
+        ]
       }
     }
 

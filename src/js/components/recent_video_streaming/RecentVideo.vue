@@ -2,7 +2,7 @@
 <div class="box-streaming">
     <div class="recent-bar">
         <div class="container">
-            <h4 class="recent-title" v-cloak>Recent matches</h4>
+            <h4 class="recent-title" v-cloak>Hot porno</h4>
         </div>
     </div>
     <div class="container">
@@ -10,11 +10,13 @@
             <li class="stream-item" v-for="film in films" @click="redirect(film)">
                 <div class="stream-index">
                     <div class="thumb-img">
-                        <img :src="film.image" alt="" class="img img-responsive">
+                        <img :src="getImage(film.image)" :alt="'gratis pornos - ' + film.name" class="img img-responsive">
                     </div>
                 </div>
                 <div class="stream-details">
-                    <div class="title text-bold">{{film.name}}</div>
+                    <div class="title text-bold">
+                        {{film.name}}
+                    </div>
                     <div class="meta">{{film.length}}</div>
                     <div class="description">{{film.view_number}} views</div>
                 </div>
@@ -65,6 +67,10 @@
             name: 'watch_video',
             params: {category: film.category, film: film.slug}
           })
+        },
+
+        getImage(image) {
+          return $baseUrl + '/storage/img/film/' + image;
         }
       }
     }

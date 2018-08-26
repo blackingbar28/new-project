@@ -10,6 +10,7 @@ import WatchVideo from '../components/main_video/MainStream'
 import ActorsFrontEnd from '../components/Actor/Actor';
 import ActorFilm from '../components/ActorFilm/ActorFilm';
 import Search from '../components/Search/Search'
+import Category from '../components/Category/Category'
 
 import Error404 from '../components/404/Index'
 
@@ -21,7 +22,7 @@ let routes = [
   },
   {
     path: '/category/:category',
-    component: Dashboard,
+    component: Category,
     name: 'category',
     prop: true
   },

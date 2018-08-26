@@ -21,6 +21,7 @@ class CreateActorsTable extends Migration
             $table->string('nation');
             $table->string('height');
             $table->string('history');
+            $table->string('born_date');
             $table->timestamps();
         });
     }

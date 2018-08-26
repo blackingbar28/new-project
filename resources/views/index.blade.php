@@ -4,12 +4,7 @@
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>ONE-XX.DE - Deutsche Porno, Gratis Porno, deutschsex</title>
-    <meta name="rating" content="RTA-5042-1996-1400-1577-RTA" />
-    <meta name="title" content="Deutsche Porno - ONE-XX.DE" />
-    <meta name="description" content="ONE-XX.DE – Schaue deutsche porno online auf deinem Desktop oder Mobilgeräten!">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name=viewport content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">

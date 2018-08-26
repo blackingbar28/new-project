@@ -167,7 +167,7 @@
 
         Request.post('/api/actors', formData).then((response) => {
           this.isShowAdd = false;
-          this.initData();
+          this.getFilms();
         });
       },
 
@@ -185,8 +185,8 @@
       },
 
       remove(trailer) {
-        Request.delete('/api/trailers/' + trailer.id).then((response) => {
-          this.initData();
+        Request.delete('/api/actors/' + trailer.id).then((response) => {
+          this.getFilms();
         });
       },
 

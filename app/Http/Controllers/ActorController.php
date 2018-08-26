@@ -46,10 +46,10 @@ class ActorController extends Controller
         return $this->responseSuccess('');
     }
 
-    public function destroy($filmId)
+    public function destroy($actorId)
     {
-        $film = Film::find($filmId);
-        $film->delete();
+        $actor = Actor::find($actorId);
+        $actor->delete();
 
         return $this->responseSuccess('');
     }

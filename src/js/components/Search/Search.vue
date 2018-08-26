@@ -93,6 +93,22 @@
       },
     },
 
+    head: {
+      title: function () {
+        return {
+          inner: 'Suche pornos videos',
+          separator: ' ', // Leave empty separator
+          complement: ' ' // Leave empty complement
+        }
+      },
+      meta: [
+        { name: 'description', content: 'Suche pornos videos' }
+      ],
+      link: [
+        { rel: 'canonical', href: 'http://one-xx.de/search' }
+      ]
+    },
+
     methods: {
       getFilms() {
         let params = {

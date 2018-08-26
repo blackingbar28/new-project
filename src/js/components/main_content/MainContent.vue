@@ -2,7 +2,7 @@
 <div>
     <div class="recent-bar">
         <div class="container">
-            <h4 class="recent-title">{{title}}</h4>
+            <h1 class="recent-title">Deutsche Porno - {{title}}</h1>
         </div>
     </div>
 <div class="container">
@@ -140,7 +140,7 @@
             this.title = 'UnCensored';
             break;
           default:
-            this.title = 'Recent films';
+            this.title = 'besten porno';
             break;
         }
       },
@@ -155,7 +155,7 @@
       },
 
       getBackground(image) {
-        let url = 'url("' + image + '")';
+        let url = 'url("' + $baseUrl + '/storage/img/film/' + image + '")';
 
         let styleObject = {
           background: url,

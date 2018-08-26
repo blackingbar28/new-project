@@ -4,14 +4,14 @@
     <div>
         <div class="recent-bar">
             <div class="container">
-                <h4 class="recent-title">List all actors</h4>
+                <h4 class="recent-title">Pornostars</h4>
             </div>
         </div>
 
         <div class="container">
             <div class="card-deck">
                 <div class="card my-3 actor-card" v-for="actor in actors" @click="redirectToActorFilm(actor)">
-                    <img :src="actor.avatar" class="card-img-top">
+                    <img :src="getLink(actor.avatar)" :alt="'deutsche porno ' + actor.name" class="card-img-top">
                     <div class="card-body">
                         <h4 class="card-title">{{actor.name}}</h4>
                         <p class="card-text">Year: {{actor.born_date}}</p>
@@ -56,7 +56,28 @@
             name: 'actor_film',
             params: {name: actor.slug}
           });
+        },
+
+        getLink(avatar) {
+          return $baseUrl + '/storage/img/avatar/' + avatar;
         }
+
+      },
+
+      head: {
+        title: function () {
+          return {
+            inner: 'PORNOSTARS',
+            separator: ' ', // Leave empty separator
+            complement: ' ' // Leave empty complement
+          }
+        },
+        meta: [
+          { name: 'description', content: 'Pornostars - Wählen Sie Ihren Lieblings-Pornostar und schauen Sie sich alle ihre Porno-Videos - ONE-XX.DE' }
+        ],
+        link: [
+          { rel: 'canonical', href: 'http://one-xx.de/actors' }
+        ]
       }
     }
 

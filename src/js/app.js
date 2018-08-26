@@ -40,5 +40,5 @@ const initApp = new Vue({
 
       return Promise.reject(error);
     });
-  },
+  }
 });

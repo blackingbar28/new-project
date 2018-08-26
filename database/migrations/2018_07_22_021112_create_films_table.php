@@ -21,6 +21,7 @@ class CreateFilmsTable extends Migration
             $table->string('length');
             $table->string('resolution');
             $table->string('slug');
+            $table->integer('view_number')->default(0);
             $table->timestamps();
         });
     }
